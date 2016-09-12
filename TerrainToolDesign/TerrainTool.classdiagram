@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="d58256e0-b3db-44de-a930-93bc4ee9571a" name="TerrainTool" linkedPackageId="2ac97596-cdda-44d8-bfde-38e14e82fa87" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="a8e37fd8-9f3e-49f1-a798-413ae039116e">
-      <profileInstance Id="2f2baf13-ca31-40bd-b5d1-592c9b22d10d" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="8c2bde9e-7292-428b-b46d-c7cce8d5a118">
-      <profileInstance Id="a675dbca-af7f-4c7c-b4fb-225b60adf1ff" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="4bae8dc8-3d1d-494b-abc1-10dec20f0265" name="Nameable" isAbstract="false" isLeaf="false">
@@ -458,8 +444,121 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="c5e4a601-f625-48d7-9bf2-47b0266a13f2" name="Colorizable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5e693782-467a-400e-8de4-934290dc6ddd" />
+        <ownedOperations>
+          <operation Id="a79f8aeb-3e75-4282-9ca3-18e4c62c4d55" name="SetColor" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b3478459-0977-4ec9-845f-73cf26605a86" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bf153891-7b58-44ed-b176-1c470bb4920b" name="Color" direction="In" isUnique="false">
+                  <elementDefinition Id="291dbcd9-e2c9-41c5-ba21-29f39f40cdd2" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c0cc39b0-c6a6-485d-8108-54cda3ac3b61" name="TextureSourceFilter" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="534cd5cd-1bd0-471b-ba7b-a2a734b1752c" />
+        <generalsInternal>
+          <generalization Id="4be7068d-7e2e-4245-b6fd-6c6cb0ff54dc" isSubstitutable="false">
+            <classMoniker Id="d07c34b7-853d-46ec-9973-f64a392ab0ce" LastKnownName="TextureSource" />
+            <elementDefinition Id="3f122746-070b-4ff5-980f-0c26757bf0db" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="f1712ff6-5ebb-43d1-af99-7fa48bc8dd36" isDerived="false" sourceEndRoleName="TextureSourceFilter" targetEndRoleName="TextureSource" isLeaf="false" isAbstract="false">
+            <classMoniker Id="d07c34b7-853d-46ec-9973-f64a392ab0ce" LastKnownName="TextureSource" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d0ee91da-4b2d-40c9-8c91-fe20f2c90417" name="TextureSourceFilter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5671d580-9b6c-4f3c-a821-1cb701900475" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d3f70430-4bf1-49ae-9ac0-8091bbb30e9f" name="TextureSource" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c3b40557-9d07-468e-a818-b4c7635c5be1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="417602c9-438b-4f63-a17c-fff6f61d4d41" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="73a211bd-2fff-442a-ae67-ea36ef5a020d" name="_textureSource" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b6f20792-ee1c-4de4-9152-76fa3e7fb244" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7b778dac-6763-47d0-a0ff-add0fa2e84c9" LastKnownName="TextureSource" />
+            </type_NamedElement>
+          </property>
+          <property Id="3e4a332f-4803-4bcb-ab47-0e5a5b0c45c7" name="_texture" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1ea710fb-4390-40e4-9f86-2b5f783cefd0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="64db6572-c6c1-4a85-b2eb-a72caf5ac089" LastKnownName="Texture2D" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="243ac3d8-dac2-426a-b44c-070374f8b7f5" name="Constraints" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e5f515ce-d6a9-4abd-b1a3-6fb9859853f7" />
+        <suppliersInternal>
+          <interfaceRealization Id="78ed0285-9c9a-421a-bb64-0281c03fc86e">
+            <interfaceMoniker Id="b8afd5d8-1231-456b-b2a4-5f4533250fa1" LastKnownName="MonoBehaviour" />
+            <elementDefinition Id="8a864547-0c2f-4259-a84d-0175e6658de3" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="2a712b85-d904-406f-818d-2a2f259d9643" isDerived="false" sourceEndRoleName="Constraints" targetEndRoleName="TextureSourceManager" isLeaf="false" isAbstract="false">
+            <classMoniker Id="1648ae86-b014-4ea8-ae9f-9d6c896be886" LastKnownName="TextureSourceManager" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4e55a5a2-40b9-45c3-ba84-a4003afaca36" name="Constraints" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b62b164c-8886-4bef-aa03-7b3260aba934" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a49f5438-c141-4a72-abb9-5d93151535e1" name="TextureSourceManager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f5e2aa68-6930-4fc8-8c33-f83910f56f1e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5c2996cc-bf6a-4055-8c58-6021215cf4df" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="b8afd5d8-1231-456b-b2a4-5f4533250fa1" name="MonoBehaviour" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fb9524d8-14de-4272-baa6-8f1b7721bf44" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2bb5d8a1-acfe-47b1-a1c4-f15db638d0ba" name="Constraint" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="91be3827-1c81-452e-a58b-ee0f3aa0984d" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="2ac97596-cdda-44d8-bfde-38e14e82fa87" name="TerrainToolDesign">
     <elementDefinition Id="7fa4722e-3e82-419e-bbbc-0b7cb5d3471c" />
+    <profileInstances>
+      <packageHasProfileInstances Id="a8e37fd8-9f3e-49f1-a798-413ae039116e">
+        <profileInstance Id="2f2baf13-ca31-40bd-b5d1-592c9b22d10d" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="8c2bde9e-7292-428b-b46d-c7cce8d5a118">
+        <profileInstance Id="a675dbca-af7f-4c7c-b4fb-225b60adf1ff" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
