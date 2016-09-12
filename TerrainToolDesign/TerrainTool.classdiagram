@@ -1,1 +1,465 @@
-﻿ 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="d58256e0-b3db-44de-a930-93bc4ee9571a" name="TerrainTool" linkedPackageId="2ac97596-cdda-44d8-bfde-38e14e82fa87" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="a8e37fd8-9f3e-49f1-a798-413ae039116e">
+      <profileInstance Id="2f2baf13-ca31-40bd-b5d1-592c9b22d10d" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8c2bde9e-7292-428b-b46d-c7cce8d5a118">
+      <profileInstance Id="a675dbca-af7f-4c7c-b4fb-225b60adf1ff" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="4bae8dc8-3d1d-494b-abc1-10dec20f0265" name="Nameable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="79dbe68f-6d10-43f7-996d-5bba2d9525d8" />
+        <ownedOperations>
+          <operation Id="85b4c72a-d54e-4a58-866b-d696a1d6b4e1" name="SetName" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1e0ae9d8-3d93-43db-96d6-75f4d238290e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d27dca83-e1d3-4f01-8d39-58d5b6ec0ce1" name="string" direction="In" isUnique="false">
+                  <elementDefinition Id="a8ad9719-379b-45a0-8391-db6059d13575" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d07c34b7-853d-46ec-9973-f64a392ab0ce" name="TextureSource" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59" />
+        <suppliersInternal>
+          <interfaceRealization Id="c8bdd73b-6c0e-44a9-927c-ca78c36ab1f6">
+            <interfaceMoniker Id="baefa5c9-8f8f-4dd5-8cdd-fe8d48844c13" LastKnownName="Inspectable" />
+            <elementDefinition Id="0b0ed23f-6e9c-43fc-a5ff-7d750ad2986b" />
+          </interfaceRealization>
+          <interfaceRealization Id="1229c810-4c3c-434f-a602-df5a7668f430">
+            <interfaceMoniker Id="4bae8dc8-3d1d-494b-abc1-10dec20f0265" LastKnownName="Nameable" />
+            <elementDefinition Id="3674eee0-b867-4cf4-96d8-42f520799069" />
+          </interfaceRealization>
+          <interfaceRealization Id="f4fb757a-1ed4-47cc-9321-193157b2349e">
+            <interfaceMoniker Id="cfafa933-02d9-4e77-94d8-6133cadbfd95" LastKnownName="ScriptableObject" />
+            <elementDefinition Id="0d17ca6b-8ad9-4fcf-931d-4afa5d0a8c37" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="8315c4d0-1d0d-4670-8f3f-9ff8172added" name="_texture" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="179dba06-779d-47e2-892a-cca9a305a838" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="64db6572-c6c1-4a85-b2eb-a72caf5ac089" LastKnownName="Texture2D" />
+            </type_NamedElement>
+          </property>
+          <property Id="348b5d28-6a15-4c5f-8c2c-531a91190256" name="_label" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d0526b35-c6ec-426c-b1c8-9d66bf66c836" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d9e4763c-cfe6-4f75-bae6-9fdf649b1f31" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="56b780cf-1b2c-493f-889c-4fadbc99cea9" name="CreateTexture" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8e75d3d0-21e2-4d40-9513-90a19e9f31ed" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="214c7c6c-96ab-42d9-898c-9419cb042ddd" direction="Return" isUnique="false">
+                  <elementDefinition Id="b60fd46e-6249-4a03-9adf-0c1f297d5307" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="64db6572-c6c1-4a85-b2eb-a72caf5ac089" LastKnownName="Texture2D" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6f833979-c59c-4108-af67-ed9f4edd3418" name="DrawInspectorUI" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a64d370d-a261-4c83-91e0-86ca68947155" />
+          </operation>
+          <operation Id="41b69019-1284-4bc8-a025-1e3c3920b92b" name="SetName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="08015e8e-3512-425d-bec2-b01d2cc36ade" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="413e7e4c-6117-497e-9b2c-d0294a2c7966" name="string" direction="In" isUnique="false">
+                  <elementDefinition Id="54218db0-62f9-44b1-85cf-74a477664c80" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="64db6572-c6c1-4a85-b2eb-a72caf5ac089" name="Texture2D" isAbstract="false" isLeaf="false" cachedFullName="Texture2D">
+        <elementDefinition Id="90e7c1ae-bccc-40ab-9252-7fcd317da2e7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0cc19fc3-da7a-4f25-aec4-989c4fc34cf6" name="UserTexture" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d762295c-c2b7-4fbe-819a-4e084258b497" />
+        <generalsInternal>
+          <generalization Id="7de436f5-c568-4994-8a29-fa5c5b795511" isSubstitutable="false">
+            <classMoniker Id="d07c34b7-853d-46ec-9973-f64a392ab0ce" LastKnownName="TextureSource" />
+            <elementDefinition Id="af06d0ba-3679-4e89-88d0-5c8e475be720" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="6f79b525-0363-4727-9c15-b9ad9e1aba71" name="CreateTexture" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d9d62d73-01d5-4f9e-8d7b-d41fe2f0ba1f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f2842885-55ab-4011-bf4b-cbe7915380ce" direction="Return" isUnique="false">
+                  <elementDefinition Id="03d27120-ed8c-4c6b-86cc-6212ddebaac6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="64db6572-c6c1-4a85-b2eb-a72caf5ac089" LastKnownName="Texture2D" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9addfb6b-95d3-481c-a2a9-79fce0efa63e" name="LinearGradient" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="53109c41-e1f7-460b-8b9a-49d6f2e20e74" />
+        <generalsInternal>
+          <generalization Id="7fd1c0dd-0f2b-4738-b3c1-3f0a7d197b6e" isSubstitutable="false">
+            <classMoniker Id="d07c34b7-853d-46ec-9973-f64a392ab0ce" LastKnownName="TextureSource" />
+            <elementDefinition Id="d0208481-1d4f-44fa-910b-9ef643b4a2db" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="ce80b58a-41e7-4356-af8c-668d0533e308" name="CreateTexture" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f9fe8999-bed2-488f-9439-bd9b1fbe3b9e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fdc5b23b-aefc-48ec-924d-9ee9480eb8d2" direction="Return" isUnique="false">
+                  <elementDefinition Id="40fb124e-6e12-4b02-8135-8b1be5149da7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="64db6572-c6c1-4a85-b2eb-a72caf5ac089" LastKnownName="Texture2D" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="baefa5c9-8f8f-4dd5-8cdd-fe8d48844c13" name="Inspectable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e5fca5bc-2adc-4527-a491-9ec2ac23be9c" />
+        <ownedOperations>
+          <operation Id="4ae7c2c9-c426-4826-97b1-37f323d028e2" name="DrawInspectorUI" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e1686380-8d80-481b-82f7-fbdf85729077" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="cfafa933-02d9-4e77-94d8-6133cadbfd95" name="ScriptableObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a94217d6-547c-4586-9e57-385b2fb6bd88" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="d9e4763c-cfe6-4f75-bae6-9fdf649b1f31" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="da2dbf78-c114-4c8b-adf5-8e8e42e8f6fe" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="58a79ff4-fdbb-43bb-9216-cc8fcdf04313" name="Displayable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9f141f26-f9b9-41c5-829e-baa876a5dc5f" />
+        <ownedOperations>
+          <operation Id="c9e04328-4d35-4f52-a69a-f1c43ca0c673" name="DrawSceneUI" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3a079fdb-3a7c-42be-bf15-9421f0f0ec91" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1648ae86-b014-4ea8-ae9f-9d6c896be886" name="TextureSourceManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c69adb1e-c8d8-46e4-b857-e5f7de1a3065" />
+        <ownedAttributesInternal>
+          <property Id="c258ef64-64a9-4ffb-ba07-3d1bab1f05e2" name="_referenceCount" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="117b2249-c4fc-44dd-a8eb-442dcf43a0b9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="de8735fe-a2ec-460f-a764-19f09e2a95e1" LastKnownName="Dictionary&lt;int,int&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="f401980b-6e8a-4ff0-9c47-6ce8d73f7967" name="FindSourceByName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bbbbf757-58c6-4f33-9534-30f09123dd9c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="07793b60-0c8c-4a6c-825f-4622690ee948" name="string" direction="In" isUnique="false">
+                  <elementDefinition Id="e7a84ec3-751b-4764-8e74-9393596bbf1d" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5db3d8fe-1a31-476a-a03d-6fb5524e685c" direction="Return" isUnique="false">
+                  <elementDefinition Id="7c527968-b16e-4bc1-a5dd-e9889acbfb2f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7b778dac-6763-47d0-a0ff-add0fa2e84c9" LastKnownName="TextureSource" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="27a3b2c2-e845-4db8-9f98-02690de178eb" name="CreateTextureSource" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="49de12bf-b724-466f-aaee-82200e64d0d4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8bb1eab6-26b5-4f2b-acba-382b411e3faa" direction="Return" isUnique="false">
+                  <elementDefinition Id="1e5a94d6-89d7-4eb2-983c-7f4985678778" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7b778dac-6763-47d0-a0ff-add0fa2e84c9" LastKnownName="TextureSource" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a6973f60-ef54-4d79-9ccc-3f80a5022c40" name="Duplicate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8502010f-2f39-4d3d-95ed-34a2f719ae9b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="613cbd76-5239-4807-91b0-5800197220be" name="string" direction="In" isUnique="false">
+                  <elementDefinition Id="e8743c94-b24d-4898-b874-1cb0ad54c926" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="433ff74c-56ea-445b-a88d-ec6e30cf025a" direction="Return" isUnique="false">
+                  <elementDefinition Id="adba42f6-ae1f-4d33-8b10-d889ca3aceb3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7b778dac-6763-47d0-a0ff-add0fa2e84c9" LastKnownName="TextureSource" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f9e944da-640a-42a6-9a68-f67cd4af5408" name="GetTextureSources" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8b37e451-90b4-48bb-972f-2b630641089f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4981e271-62cc-421e-b205-491380099506" direction="Return" isUnique="false">
+                  <elementDefinition Id="4a356c8a-fbdb-4cf2-94b6-dfd54a32c3b2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c99d0eb2-2bc6-4da9-a2b3-5a8ee7471688" LastKnownName="TextureSources[]" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="050ddebb-5e52-41eb-873f-e086eff2ee72" name="OnDisable" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f9e46c45-5bb5-4ee8-9a15-30d4cb1bf054" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7b778dac-6763-47d0-a0ff-add0fa2e84c9" name="TextureSource" isAbstract="false" isLeaf="false" cachedFullName="TerrainToolDesign::TextureSource">
+        <elementDefinition Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c99d0eb2-2bc6-4da9-a2b3-5a8ee7471688" name="TextureSources[]" isAbstract="false" isLeaf="false" cachedFullName="TextureSources[]">
+        <elementDefinition Id="7a893917-433e-4572-9382-f9d36dd6805b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="de8735fe-a2ec-460f-a764-19f09e2a95e1" name="Dictionary&lt;int,int&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;int,int&gt;">
+        <elementDefinition Id="8a720689-7a31-4999-a3c8-4bfba055c130" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1c58a624-2520-415f-8446-fce43c0fb03d" name="BlendMethod" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5c725406-157d-4e6c-a205-378cb91038bf" />
+        <ownedOperationsInternal>
+          <operation Id="de425b69-cf8f-4183-9805-4eca8fa96bd2" name="Blend" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9c48b48c-9b65-4790-882d-b9d740ef9582" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e261f648-752a-475a-97b8-6f3af3a352b9" name="TextureSource" direction="In" isUnique="false">
+                  <elementDefinition Id="e3b20bdb-08de-4e98-92d0-fd5e818e063e" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b458c68e-76fb-4948-add4-a7c448f99621" name="Terrain" direction="In" isUnique="false">
+                  <elementDefinition Id="ddf81e5c-69db-4e13-8f15-1e74ea7a6d4c" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4a1f5ae1-9d5d-4eb3-ac30-4302315db3d7" direction="Return" isUnique="false">
+                  <lowerValueInternal>
+                    <literalString Id="fb7b6089-58b0-4e73-b880-40893f453694" name="Lower" value=",">
+                      <elementDefinition Id="6e0867da-f04a-4ca0-be81-74e562d44452" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="7c4b6440-9d0e-43a7-902a-17f5e3d35b45" name="Upper" value=",">
+                      <elementDefinition Id="97b6846f-d43c-4b33-81c8-9e6cffc8887e" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="8f4a8039-37c3-4b91-8d50-e3b590bc0345" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="51544b9a-2fe2-4145-8483-2c33c952b5b4" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="51544b9a-2fe2-4145-8483-2c33c952b5b4" name="float" isAbstract="false" isLeaf="false" cachedFullName="float">
+        <elementDefinition Id="d58557f1-595a-4d3b-b022-24d9c38be108" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="15408d5c-89a9-4e62-9ace-9e392e646fc8" name="BlendAddition" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="eec6e793-71be-470c-a3c8-5a489d601651" />
+        <generalsInternal>
+          <generalization Id="2fc1f2af-42df-4768-a40a-d85f5b116a4e" isSubstitutable="false">
+            <classMoniker Id="1c58a624-2520-415f-8446-fce43c0fb03d" LastKnownName="BlendMethod" />
+            <elementDefinition Id="3c602e11-6f9d-4a25-b611-355d9a4c3702" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="a75e789b-0a69-4fd6-bdda-7fa620f530bf" name="Blend" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="21c52e84-2c7d-4c99-bef6-006309a2e37d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ef2ecd13-0c08-41ae-a4b0-595a92b95aec" name="TextureSource" direction="In" isUnique="false">
+                  <elementDefinition Id="65dfd5f6-1204-49ae-b467-7a2fcc51f0d0" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b8f6c18e-7843-4a1c-b3da-5e847c8a59a5" name="Terrain" direction="In" isUnique="false">
+                  <elementDefinition Id="145cde22-5909-44ea-a8c0-6e8b26cf243a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d3e0d343-34bc-48ad-bbbd-8a2ae863fddf" direction="Return" isUnique="false">
+                  <lowerValueInternal>
+                    <literalString Id="fae28406-8f59-49f5-8d67-34757dc3bc8e" name="Lower" value=",">
+                      <elementDefinition Id="c3c449dd-0174-4b10-ab4b-60a4682d6cdd" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="5730a7db-ca5f-4225-ae96-ed160c73c03c" name="Upper" value=",">
+                      <elementDefinition Id="8ed7ecd9-5045-4889-a350-e3cce27d4e64" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="dbe89de1-595e-40c9-9c2b-9a7b795993dd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="51544b9a-2fe2-4145-8483-2c33c952b5b4" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2c041978-0747-427b-a1fa-ec61c7465b38" name="BlendSubstraction" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="31257433-c058-4bd8-b52b-48f931b3ff48" />
+        <generalsInternal>
+          <generalization Id="e231edea-4b86-41b0-8b8c-073d7c2c2569" isSubstitutable="false">
+            <classMoniker Id="1c58a624-2520-415f-8446-fce43c0fb03d" LastKnownName="BlendMethod" />
+            <elementDefinition Id="a5bb9240-8727-41b8-9890-a51003c33976" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="27933f48-1891-4ee6-bc19-a658447f728e" name="Blend" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="46524525-24b9-40ae-b965-f0ebe23f1112" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e09d971b-c499-47fe-b572-b301321f9d7e" name="TextureSource" direction="In" isUnique="false">
+                  <elementDefinition Id="61afe561-4e27-4953-bddb-828ee93942e3" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e47d94b5-af3d-454e-9e78-773f9acb38fd" name="Terrain" direction="In" isUnique="false">
+                  <elementDefinition Id="35a420df-af08-4a20-9eed-9a83cbed6516" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fe387c68-637e-4bd3-a330-545c2f0e18ed" direction="Return" isUnique="false">
+                  <lowerValueInternal>
+                    <literalString Id="2c8f3fe7-38fa-49e8-86e9-ba340d5bb2ae" name="Lower" value=",">
+                      <elementDefinition Id="40ec2ec8-5085-4d69-93af-1c686f8e766a" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="1bbf887a-caaf-46be-b98e-adc68744fefb" name="Upper" value=",">
+                      <elementDefinition Id="b77cd4c4-9c14-440f-87b2-28da37dd880b" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="22c74a78-0f3f-4949-bb14-91e5099d1d77" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="51544b9a-2fe2-4145-8483-2c33c952b5b4" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e02c42e2-d909-4a32-926c-b0104bbe6ad3" name="BlendNormal" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b51f464c-2939-4450-be00-e3bbdd3b5e73" />
+        <generalsInternal>
+          <generalization Id="a0223d0a-e73a-4924-84ff-00495429ac74" isSubstitutable="false">
+            <classMoniker Id="1c58a624-2520-415f-8446-fce43c0fb03d" LastKnownName="BlendMethod" />
+            <elementDefinition Id="b47f51c0-95a4-4120-9cf3-cca81f9bbe5f" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="8e54e7f3-788d-4c38-83d1-d9498ebf0e9e" name="Blend" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6da21e2f-fc90-461c-b521-df3bb8d74bcd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="83820e1b-f2bd-4c42-9a3f-5c507e051905" name="TextureSource" direction="In" isUnique="false">
+                  <elementDefinition Id="1e0ba120-deaf-4332-8c78-42f1a372167a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ac0d9e2f-28c8-46c8-835a-17747eea1d85" name="Terrain" direction="In" isUnique="false">
+                  <elementDefinition Id="9a362e00-cc98-4fdf-8c9f-888deb875b8d" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="14c0e2aa-d656-409d-8201-0948d1510775" direction="Return" isUnique="false">
+                  <lowerValueInternal>
+                    <literalString Id="b7dc372b-6b4b-4f72-83e7-73c3c6facd21" name="Lower" value=",">
+                      <elementDefinition Id="5f1fb4bd-9917-4ded-bb2e-52c0b2ff7467" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="7451b719-14a0-4370-bde9-8cb6c28977e1" name="Upper" value=",">
+                      <elementDefinition Id="f4c097ec-e841-46fb-8fe2-02433bbdf4a5" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="77b8549c-5250-4170-b599-5eea8a6f7783" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="51544b9a-2fe2-4145-8483-2c33c952b5b4" LastKnownName="float" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="2ac97596-cdda-44d8-bfde-38e14e82fa87" name="TerrainToolDesign">
+    <elementDefinition Id="7fa4722e-3e82-419e-bbbc-0b7cb5d3471c" />
+  </package>
+</logicalClassDesignerModel>

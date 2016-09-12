@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="7fa4722e-3e82-419e-bbbc-0b7cb5d3471c"
   name="TerrainToolDesign" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -17,28 +17,760 @@
         name="StandardProfileL3" />
     </packageHasProfileInstances>
   </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="79dbe68f-6d10-43f7-996d-5bba2d9525d8"
+        name="Nameable"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="1e0ae9d8-3d93-43db-96d6-75f4d238290e"
+            name="SetName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a8ad9719-379b-45a0-8391-db6059d13575"
+                  name="string"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59"
+        name="TextureSource"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="0b0ed23f-6e9c-43fc-a5ff-7d750ad2986b">
+            <interfaceMoniker
+              Id="e5fca5bc-2adc-4527-a491-9ec2ac23be9c"
+              LastKnownName="Inspectable"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="3674eee0-b867-4cf4-96d8-42f520799069">
+            <interfaceMoniker
+              Id="79dbe68f-6d10-43f7-996d-5bba2d9525d8"
+              LastKnownName="Nameable"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="0d17ca6b-8ad9-4fcf-931d-4afa5d0a8c37">
+            <interfaceMoniker
+              Id="a94217d6-547c-4586-9e57-385b2fb6bd88"
+              LastKnownName="ScriptableObject"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="179dba06-779d-47e2-892a-cca9a305a838"
+            name="_texture"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="90e7c1ae-bccc-40ab-9252-7fcd317da2e7"
+                LastKnownName="Texture2D"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d0526b35-c6ec-426c-b1c8-9d66bf66c836"
+            name="_label"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="da2dbf78-c114-4c8b-adf5-8e8e42e8f6fe"
+                LastKnownName="string"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="8e75d3d0-21e2-4d40-9513-90a19e9f31ed"
+            name="CreateTexture"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b60fd46e-6249-4a03-9adf-0c1f297d5307"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="90e7c1ae-bccc-40ab-9252-7fcd317da2e7"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a64d370d-a261-4c83-91e0-86ca68947155"
+            name="DrawInspectorUI"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="08015e8e-3512-425d-bec2-b01d2cc36ade"
+            name="SetName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="54218db0-62f9-44b1-85cf-74a477664c80"
+                  name="string"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="90e7c1ae-bccc-40ab-9252-7fcd317da2e7"
+        name="Texture2D" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d762295c-c2b7-4fbe-819a-4e084258b497"
+        name="UserTexture"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="af06d0ba-3679-4e89-88d0-5c8e475be720"
+            isSubstitutable="false">
+            <classMoniker
+              Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59"
+              LastKnownName="TextureSource"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d9d62d73-01d5-4f9e-8d7b-d41fe2f0ba1f"
+            name="CreateTexture"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="03d27120-ed8c-4c6b-86cc-6212ddebaac6"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="90e7c1ae-bccc-40ab-9252-7fcd317da2e7"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="53109c41-e1f7-460b-8b9a-49d6f2e20e74"
+        name="LinearGradient"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="d0208481-1d4f-44fa-910b-9ef643b4a2db"
+            isSubstitutable="false">
+            <classMoniker
+              Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59"
+              LastKnownName="TextureSource"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f9fe8999-bed2-488f-9439-bd9b1fbe3b9e"
+            name="CreateTexture"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40fb124e-6e12-4b02-8135-8b1be5149da7"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="90e7c1ae-bccc-40ab-9252-7fcd317da2e7"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="e5fca5bc-2adc-4527-a491-9ec2ac23be9c"
+        name="Inspectable"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="e1686380-8d80-481b-82f7-fbdf85729077"
+            name="DrawInspectorUI"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="a94217d6-547c-4586-9e57-385b2fb6bd88"
+        name="ScriptableObject"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="da2dbf78-c114-4c8b-adf5-8e8e42e8f6fe"
+        name="string" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="9f141f26-f9b9-41c5-829e-baa876a5dc5f"
+        name="Displayable"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="3a079fdb-3a7c-42be-bf15-9421f0f0ec91"
+            name="DrawSceneUI"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c69adb1e-c8d8-46e4-b857-e5f7de1a3065"
+        name="TextureSourceManager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="117b2249-c4fc-44dd-a8eb-442dcf43a0b9"
+            name="_referenceCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8a720689-7a31-4999-a3c8-4bfba055c130"
+                LastKnownName="Dictionary&lt;int,int&gt;"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="bbbbf757-58c6-4f33-9534-30f09123dd9c"
+            name="FindSourceByName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e7a84ec3-751b-4764-8e74-9393596bbf1d"
+                  name="string"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7c527968-b16e-4bc1-a5dd-e9889acbfb2f"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59"
+                      LastKnownName="TextureSource"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="49de12bf-b724-466f-aaee-82200e64d0d4"
+            name="CreateTextureSource"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1e5a94d6-89d7-4eb2-983c-7f4985678778"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59"
+                      LastKnownName="TextureSource"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8502010f-2f39-4d3d-95ed-34a2f719ae9b"
+            name="Duplicate"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e8743c94-b24d-4898-b874-1cb0ad54c926"
+                  name="string"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="adba42f6-ae1f-4d33-8b10-d889ca3aceb3"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59"
+                      LastKnownName="TextureSource"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8b37e451-90b4-48bb-972f-2b630641089f"
+            name="GetTextureSources"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4a356c8a-fbdb-4cf2-94b6-dfd54a32c3b2"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7a893917-433e-4572-9382-f9d36dd6805b"
+                      LastKnownName="TextureSources[]"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f9e46c45-5bb5-4ee8-9a15-30d4cb1bf054"
+            name="OnDisable"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7a893917-433e-4572-9382-f9d36dd6805b"
+        name="TextureSources[]" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="8a720689-7a31-4999-a3c8-4bfba055c130"
+        name="Dictionary&lt;int,int&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5c725406-157d-4e6c-a205-378cb91038bf"
+        name="BlendMethod"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="9c48b48c-9b65-4790-882d-b9d740ef9582"
+            name="Blend"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e3b20bdb-08de-4e98-92d0-fd5e818e063e"
+                  name="TextureSource"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ddf81e5c-69db-4e13-8f15-1e74ea7a6d4c"
+                  name="Terrain"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8f4a8039-37c3-4b91-8d50-e3b590bc0345"
+                  direction="Return"
+                  isUnique="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="6e0867da-f04a-4ca0-be81-74e562d44452"
+                      name="Lower"
+                      value="," />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="97b6846f-d43c-4b33-81c8-9e6cffc8887e"
+                      name="Upper"
+                      value="," />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d58557f1-595a-4d3b-b022-24d9c38be108"
+                      LastKnownName="float"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d58557f1-595a-4d3b-b022-24d9c38be108"
+        name="float" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="eec6e793-71be-470c-a3c8-5a489d601651"
+        name="BlendAddition"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="3c602e11-6f9d-4a25-b611-355d9a4c3702"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5c725406-157d-4e6c-a205-378cb91038bf"
+              LastKnownName="BlendMethod"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="21c52e84-2c7d-4c99-bef6-006309a2e37d"
+            name="Blend"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="65dfd5f6-1204-49ae-b467-7a2fcc51f0d0"
+                  name="TextureSource"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="145cde22-5909-44ea-a8c0-6e8b26cf243a"
+                  name="Terrain"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dbe89de1-595e-40c9-9c2b-9a7b795993dd"
+                  direction="Return"
+                  isUnique="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="c3c449dd-0174-4b10-ab4b-60a4682d6cdd"
+                      name="Lower"
+                      value="," />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="8ed7ecd9-5045-4889-a350-e3cce27d4e64"
+                      name="Upper"
+                      value="," />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d58557f1-595a-4d3b-b022-24d9c38be108"
+                      LastKnownName="float"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="31257433-c058-4bd8-b52b-48f931b3ff48"
+        name="BlendSubstraction"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="a5bb9240-8727-41b8-9890-a51003c33976"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5c725406-157d-4e6c-a205-378cb91038bf"
+              LastKnownName="BlendMethod"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="46524525-24b9-40ae-b965-f0ebe23f1112"
+            name="Blend"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="61afe561-4e27-4953-bddb-828ee93942e3"
+                  name="TextureSource"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="35a420df-af08-4a20-9eed-9a83cbed6516"
+                  name="Terrain"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="22c74a78-0f3f-4949-bb14-91e5099d1d77"
+                  direction="Return"
+                  isUnique="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="40ec2ec8-5085-4d69-93af-1c686f8e766a"
+                      name="Lower"
+                      value="," />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b77cd4c4-9c14-440f-87b2-28da37dd880b"
+                      name="Upper"
+                      value="," />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d58557f1-595a-4d3b-b022-24d9c38be108"
+                      LastKnownName="float"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b51f464c-2939-4450-be00-e3bbdd3b5e73"
+        name="BlendNormal"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="b47f51c0-95a4-4120-9cf3-cca81f9bbe5f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5c725406-157d-4e6c-a205-378cb91038bf"
+              LastKnownName="BlendMethod"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="6da21e2f-fc90-461c-b521-df3bb8d74bcd"
+            name="Blend"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1e0ba120-deaf-4332-8c78-42f1a372167a"
+                  name="TextureSource"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9a362e00-cc98-4fdf-8c9f-888deb875b8d"
+                  name="Terrain"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="77b8549c-5250-4170-b599-5eea8a6f7783"
+                  direction="Return"
+                  isUnique="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5f1fb4bd-9917-4ded-bb2e-52c0b2ff7467"
+                      name="Lower"
+                      value="," />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f4c097ec-e841-46fb-8fe2-02433bbdf4a5"
+                      name="Upper"
+                      value="," />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d58557f1-595a-4d3b-b022-24d9c38be108"
+                      LastKnownName="float"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
     name="Integer"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
     name="Boolean"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
     name="String"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
     name="UnlimitedNatural"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
 </modelStoreModel>
