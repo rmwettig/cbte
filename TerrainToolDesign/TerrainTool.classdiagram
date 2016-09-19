@@ -72,20 +72,6 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="7399a774-c3f8-407b-ab8a-4b72646c7446">
-      <profileInstance Id="51c3ed60-cc48-420d-9fd1-1e96938370cf" name="CSharpProfile">
-        <elementDefinition Id="dbbb157f-f7d7-473e-97cb-77339479fa40" />
-      </profileInstance>
-      <elementDefinition Id="e1682b0d-5af8-4df7-a93e-786d3003e4d3" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="1ae99426-7f6c-4dcc-804f-2b4fc524ccba">
-      <profileInstance Id="db4aed86-d63e-45ba-80fa-d6557f471443" name="TextTemplateBindings">
-        <elementDefinition Id="f8db9ca3-9036-46bd-bd0b-b13554f94720" />
-      </profileInstance>
-      <elementDefinition Id="2bedfba3-1831-4c51-bba7-335ecf93c2a8" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="4bae8dc8-3d1d-494b-abc1-10dec20f0265" name="Nameable" isAbstract="false" isLeaf="false">
@@ -776,6 +762,32 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="28c09790-900f-40fd-a3ee-769d76b0e892" />
           </association>
+          <association Id="6d9f9202-efd7-4dd7-af61-bc2502f0fdb7" isDerived="false" sourceEndRoleName="Constraint" targetEndRoleName="BlendMethod" isLeaf="false" isAbstract="false">
+            <classMoniker Id="1c58a624-2520-415f-8446-fce43c0fb03d" LastKnownName="BlendMethod" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="da8b6a3d-4cd0-4115-ba5a-b965107521ef" name="Constraint" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="43a58335-cb29-4bb6-923e-46666d8c0b5d" name="Lower" value="*">
+                      <elementDefinition Id="98fd1a0c-4fbc-4459-9541-f94bc3ad7b37" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="9afc8b83-f187-4877-b33f-8320d061739a" name="Upper" value="*">
+                      <elementDefinition Id="989d7382-3c72-4f54-914c-ac7162cc3b3c" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="90d0652e-96ee-494f-8a75-a861d5095eb2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="632c6798-2509-41c9-acd8-27aa72823902" name="BlendMethod" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fa4bffe5-4715-4d30-a493-2876e12eb98b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="044b2d8b-9b85-4153-bf17-c81e498fa297" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property Id="e7d73f00-2530-422c-87bf-591cf69db057" name="_textureSource" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -1001,6 +1013,18 @@
           <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
         </profileInstance>
         <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7399a774-c3f8-407b-ab8a-4b72646c7446">
+        <profileInstance Id="51c3ed60-cc48-420d-9fd1-1e96938370cf" name="CSharpProfile">
+          <elementDefinition Id="dbbb157f-f7d7-473e-97cb-77339479fa40" />
+        </profileInstance>
+        <elementDefinition Id="e1682b0d-5af8-4df7-a93e-786d3003e4d3" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="1ae99426-7f6c-4dcc-804f-2b4fc524ccba">
+        <profileInstance Id="db4aed86-d63e-45ba-80fa-d6557f471443" name="TextTemplateBindings">
+          <elementDefinition Id="f8db9ca3-9036-46bd-bd0b-b13554f94720" />
+        </profileInstance>
+        <elementDefinition Id="2bedfba3-1831-4c51-bba7-335ecf93c2a8" />
       </packageHasProfileInstances>
     </profileInstances>
   </package>

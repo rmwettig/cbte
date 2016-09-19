@@ -1330,6 +1330,58 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="044b2d8b-9b85-4153-bf17-c81e498fa297"
+            isDerived="false"
+            sourceEndRoleName="Constraint"
+            targetEndRoleName="BlendMethod"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="5c725406-157d-4e6c-a205-378cb91038bf"
+              LastKnownName="BlendMethod"
+              LastKnownLocation="TerrainToolDesign.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="90d0652e-96ee-494f-8a75-a861d5095eb2"
+                  name="Constraint"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="98fd1a0c-4fbc-4459-9541-f94bc3ad7b37"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="989d7382-3c72-4f54-914c-ac7162cc3b3c"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fa4bffe5-4715-4d30-a493-2876e12eb98b"
+                  name="BlendMethod"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
