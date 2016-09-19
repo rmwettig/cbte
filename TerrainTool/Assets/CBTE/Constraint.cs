@@ -37,7 +37,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void DrawSceneUI()
+	public virtual void DrawGizmo()
 	{
 		throw new System.NotImplementedException();
 	}
