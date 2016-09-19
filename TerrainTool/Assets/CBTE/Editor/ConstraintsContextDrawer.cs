@@ -22,6 +22,7 @@ public class ConstraintsContextDrawer : Editor
     public override void OnInspectorGUI()
     {
         DrawMenuBar();
+        DrawConstraintUI();
     }
 
     /// <summary>
@@ -29,7 +30,6 @@ public class ConstraintsContextDrawer : Editor
     /// </summary>
     private void OnSceneGUI()
     {
-
     }
 
     #region InspectorHelpers
@@ -39,7 +39,10 @@ public class ConstraintsContextDrawer : Editor
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Add"))
         {
-
+            Constraint c = ScriptableObject.CreateInstance<Constraint>();
+            c.SetName("Constraint (" + _context.Constraints.Count + ")");
+            _context.Constraints.Add(c);
+            EditorUtility.SetDirty(target);
         }
         if (GUILayout.Button("Apply"))
         {
@@ -48,6 +51,9 @@ public class ConstraintsContextDrawer : Editor
         EditorGUILayout.EndHorizontal();
     }
 
+    /// <summary>
+    /// Calls the inspector ui render method for each constraint
+    /// </summary>
     private void DrawConstraintUI()
     {
         List<Constraint> constraints = _context.Constraints;
@@ -61,6 +67,9 @@ public class ConstraintsContextDrawer : Editor
 
     #region EventHandlers
 
+    /// <summary>
+    /// Iterates over all constraints and adds event callbacks
+    /// </summary>
     private void RegisterAtConstraints()
     {
         List<Constraint> constraints = _context.Constraints;
@@ -69,6 +78,10 @@ public class ConstraintsContextDrawer : Editor
             RegisterCallbacks(constraints[i]);
         }
     }
+
+    /// <summary>
+    /// Iterates over all constraints and removes event callbacks
+    /// </summary>
     private void DeregisterAtConstraints()
     {
         List<Constraint> constraints = _context.Constraints;
@@ -83,12 +96,15 @@ public class ConstraintsContextDrawer : Editor
         c.Down += OnConstraintDown;
         c.Up += OnConstraintUp;
         c.Delete += OnConstraintDelete;
+        c.Change += OnConstraintChanged;
     }
     private void DeregisterCallbacks(Constraint c)
     {
         c.Down -= OnConstraintDown;
         c.Up -= OnConstraintUp;
         c.Delete -= OnConstraintDelete;
+        c.Change -= OnConstraintChanged;
+
     }
 
     public void OnConstraintUp(Constraint constraint)
@@ -109,6 +125,11 @@ public class ConstraintsContextDrawer : Editor
     public void OnConstraintFrozen(Constraint constraint)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void OnConstraintChanged(Constraint constraint)
+    {
+        Debug.Log("Constraint changed");
     }
 
     #endregion

@@ -30,9 +30,9 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void SetName(string name)
+	public void SetName(string name)
 	{
-		throw new System.NotImplementedException();
+        _name = name;
 	}
 
 	public void DrawInspectorUI(ConstraintsContext context)
@@ -44,9 +44,9 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         }
 	}
 
-	public virtual void DrawGizmo()
+	public void DrawGizmo()
 	{
-		throw new System.NotImplementedException();
+        Debug.Log(_name+" Gizmo");
 	}
 
 	public virtual void Toggle()
