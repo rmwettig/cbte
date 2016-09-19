@@ -65,6 +65,13 @@
           </operation>
           <operation Id="6f833979-c59c-4108-af67-ed9f4edd3418" name="DrawInspectorUI" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a64d370d-a261-4c83-91e0-86ca68947155" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a88ecd34-b5ef-47dd-a8a5-5b99a11f03c6" name="AppContext" direction="In" isUnique="false">
+                  <elementDefinition Id="5fb93b1a-d84b-41d7-af43-2689ed17abc9" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="41b69019-1284-4bc8-a025-1e3c3920b92b" name="SetName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="08015e8e-3512-425d-bec2-b01d2cc36ade" />
@@ -142,6 +149,13 @@
         <ownedOperations>
           <operation Id="4ae7c2c9-c426-4826-97b1-37f323d028e2" name="DrawInspectorUI" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="e1686380-8d80-481b-82f7-fbdf85729077" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="907e493a-31a5-42d9-9648-9851eb3ce747" name="ConstraintsContext" direction="In" isUnique="false">
+                  <elementDefinition Id="c37114c2-5706-47bb-8e2d-1dc794750a14" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperations>
       </Interface>
@@ -169,6 +183,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="1648ae86-b014-4ea8-ae9f-9d6c896be886" name="TextureSourceManager" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="c69adb1e-c8d8-46e4-b857-e5f7de1a3065" />
+        <suppliersInternal>
+          <interfaceRealization Id="a8eab08a-54c4-4232-8084-d0ff67c28b8d">
+            <interfaceMoniker Id="cfafa933-02d9-4e77-94d8-6133cadbfd95" LastKnownName="ScriptableObject" />
+            <elementDefinition Id="b9abf984-550a-4f31-a115-2a562a02b08c" />
+          </interfaceRealization>
+        </suppliersInternal>
         <ownedAttributesInternal>
           <property Id="c258ef64-64a9-4ffb-ba07-3d1bab1f05e2" name="_referenceCount" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="117b2249-c4fc-44dd-a8eb-442dcf43a0b9" />
@@ -505,7 +525,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="243ac3d8-dac2-426a-b44c-070374f8b7f5" name="Constraints" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="243ac3d8-dac2-426a-b44c-070374f8b7f5" name="ConstraintsContext" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="e5f515ce-d6a9-4abd-b1a3-6fb9859853f7" />
         <suppliersInternal>
           <interfaceRealization Id="78ed0285-9c9a-421a-bb64-0281c03fc86e">
@@ -530,7 +550,89 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="5c2996cc-bf6a-4055-8c58-6021215cf4df" />
           </association>
+          <association Id="548bc3cc-2862-45af-a377-09e592a3632a" isDerived="false" sourceEndRoleName="Constraints" targetEndRoleName="Constraint" isLeaf="false" isAbstract="false">
+            <classMoniker Id="2bb5d8a1-acfe-47b1-a1c4-f15db638d0ba" LastKnownName="Constraint" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f5751980-dc32-41ff-9ea7-e718deaa9b68" name="Constraints" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="843706c0-e954-4cb6-8f8c-f631e61be16d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="26ae6de4-e3cc-454f-859d-3d8b24ec8350" name="Constraint" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="f8e31332-b147-451f-83ad-d07e6170f12b" name="Lower" value="*">
+                      <elementDefinition Id="87b428c8-7916-480b-8be8-5f1b8128c4ae" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="9b5ddf7c-eca1-490e-8f48-c767a5f87136" name="Upper" value="*">
+                      <elementDefinition Id="93d34021-ce27-4406-a778-dda63eee7592" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="22b884dc-1f60-4951-beda-78e4a2be2d49" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d272b311-fae3-47f6-8f4e-08e8b8e2101c" />
+          </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="71d4f8c1-3025-4487-be70-76a13795b9b6" name="_terrain" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="eb7ed127-a1ca-4896-82b2-9a11fefacd10" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="49d91ce0-946f-43d8-b8ac-339bd162c588" LastKnownName="Terrain" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="db7c4188-955f-4c89-b34a-31eccbcb975d" name="OnConstraintUp" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f805cfaa-3e2a-4d05-8e56-65c71c6f3120" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c053f90a-b2e6-4039-ae3a-b8cdbeb35d30" name="Constraint" direction="In" isUnique="false">
+                  <elementDefinition Id="c6e1f172-f1a3-4e76-a138-ffab1930fa08" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2576a6c1-a51f-4d44-841e-d1ad8e49573c" name="OnConstraintDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="60eba53e-2646-445a-a601-b41d56bb537b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6db0f1c5-a756-438b-8114-f9aa7e7a9d46" name="Constraint" direction="In" isUnique="false">
+                  <elementDefinition Id="ad7571ab-f70e-4243-a902-ad879d880a63" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="4ef8fc0b-cd9f-454d-93d1-f62df2ca71af" name="OnConstraintDelete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4632202a-2749-4f1a-8148-eca9d850278b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="60a6acd4-c292-450e-903a-e8cfda3b0164" name="Constraint" direction="In" isUnique="false">
+                  <elementDefinition Id="1c1c7f1f-99c8-4aa6-82ce-90a1566ee6f7" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="96a462c2-0e3e-4e9c-bd23-a6706ae49efd" name="OnConstraintFrozen" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d8545e07-c62f-4923-84ff-e3629618a502" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="04024b9e-1f14-40bc-94c9-b2ebfcbb31f7" name="Constraint" direction="In" isUnique="false">
+                  <elementDefinition Id="2060d292-f9d3-4856-81a6-03496b0b7300" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="d4b3c503-b12c-4b8a-8136-c7f50fc5bd40" name="OnSceneGUI" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="53672c72-a235-49a8-897f-c4758a96f107" />
+          </operation>
+          <operation Id="5ab5e05b-88dd-4962-a495-e25db3caaa86" name="OnInspectorGUI" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e7cccc38-f038-400c-837f-ad7521134694" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -541,8 +643,263 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="2bb5d8a1-acfe-47b1-a1c4-f15db638d0ba" name="Constraint" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="91be3827-1c81-452e-a58b-ee0f3aa0984d" />
+        <suppliersInternal>
+          <interfaceRealization Id="6c219988-73f2-42de-9aed-73372c7edc6b">
+            <interfaceMoniker Id="cfafa933-02d9-4e77-94d8-6133cadbfd95" LastKnownName="ScriptableObject" />
+            <elementDefinition Id="cef75f63-5b17-4bb3-baa5-c80098bc3f3d" />
+          </interfaceRealization>
+          <interfaceRealization Id="7dae0fc4-a758-4596-aa83-aa79bec8e994">
+            <interfaceMoniker Id="c5e4a601-f625-48d7-9bf2-47b0266a13f2" LastKnownName="Colorizable" />
+            <elementDefinition Id="bdced906-9ea4-42e4-ab6d-af23f28f2b7c" />
+          </interfaceRealization>
+          <interfaceRealization Id="f94209a8-72b4-4e68-bcc2-22dbb1f6acc8">
+            <interfaceMoniker Id="4bae8dc8-3d1d-494b-abc1-10dec20f0265" LastKnownName="Nameable" />
+            <elementDefinition Id="15b49afa-ec41-47dc-be21-a5aebd122031" />
+          </interfaceRealization>
+          <interfaceRealization Id="a2a17bcc-ca10-45dd-b066-5c2c17f942a5">
+            <interfaceMoniker Id="baefa5c9-8f8f-4dd5-8cdd-fe8d48844c13" LastKnownName="Inspectable" />
+            <elementDefinition Id="9381bb3e-2fda-4903-88e6-12e6750e1065" />
+          </interfaceRealization>
+          <interfaceRealization Id="a4826b8e-728d-4e5a-811c-bffc6edba867">
+            <interfaceMoniker Id="58a79ff4-fdbb-43bb-9216-cc8fcdf04313" LastKnownName="Displayable" />
+            <elementDefinition Id="49647db3-b2a5-4026-9ec8-d963eaa48fd0" />
+          </interfaceRealization>
+          <interfaceRealization Id="ee9b92c3-fb87-4589-a744-5a9d7dd725b5">
+            <interfaceMoniker Id="11b2727c-ad44-429b-b77a-191cd0e7c890" LastKnownName="Visibility" />
+            <elementDefinition Id="d5503f86-986d-4c11-80e3-2a13c2f2cd3e" />
+          </interfaceRealization>
+          <interfaceRealization Id="1dae2901-bc60-4841-ad6f-b5a2efca684e">
+            <interfaceMoniker Id="b386e214-88d3-4d70-8246-6965eb865747" LastKnownName="Freezable" />
+            <elementDefinition Id="a76d3c6f-3b65-452a-bb86-237fa1d9af62" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="0856b59c-4504-4424-9778-cc8e9e441d34" isDerived="false" sourceEndRoleName="Constraint" targetEndRoleName="ConstraintChangedEvent" isLeaf="false" isAbstract="false">
+            <classMoniker Id="b2d65a55-4412-493c-8c09-424ead63dcbf" LastKnownName="ConstraintChangedEvent" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6a3ca5c5-5032-47e4-8840-ce2221b71694" name="Constraint" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c477dee7-0c80-408a-bd34-a8678cd61c9c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8037e218-4315-47a8-8c9e-9b13aef71888" name="ConstraintChangedEvent" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c59f6915-6032-4415-b299-f5528671d6d7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="28c09790-900f-40fd-a3ee-769d76b0e892" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="e7d73f00-2530-422c-87bf-591cf69db057" name="_textureSource" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="247b145a-08c9-4a79-ba1b-733991e41a05" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7b778dac-6763-47d0-a0ff-add0fa2e84c9" LastKnownName="TextureSource" />
+            </type_NamedElement>
+          </property>
+          <property Id="d7275f70-b5d8-400a-9326-f40de3aa871d" name="_previousHeights" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <lowerValueInternal>
+              <literalString Id="fc34f7fd-6c66-4c51-83af-8ee548341503" name="Lower" value=",">
+                <elementDefinition Id="0976264b-e5a1-4d72-b304-20a2a219a5b4" />
+              </literalString>
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString Id="5178ba5b-e0b2-495f-8c02-d29390b3044e" name="Upper" value=",">
+                <elementDefinition Id="68eb5e91-ee7f-49fb-9c18-5bea449c5526" />
+              </literalString>
+            </upperValueInternal>
+            <elementDefinition Id="f39b36ea-11fc-4f12-b977-5edaa01fd344" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="51544b9a-2fe2-4145-8483-2c33c952b5b4" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="2906b785-2ff7-4cd6-a567-c894fe44e8c7" name="_rotationAngle" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="79bd94bf-fa8f-4647-93d6-ae68de92007f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="51544b9a-2fe2-4145-8483-2c33c952b5b4" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="66caca72-c25b-444d-85fb-f999dc45b3a5" name="_strength" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9ed156fe-aa12-46b6-bd5d-f7f136fe3bd9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="51544b9a-2fe2-4145-8483-2c33c952b5b4" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="b4330752-237e-4eed-8b95-325504b9d98d" name="_isFrozen" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="10c81822-fae7-4d97-8ee4-ab2203b256e9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ba285b16-47f2-4884-8005-069e5d745ff1" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="d3f76529-039f-4f32-b288-f8d4599abf55" name="Up" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6dd4c9fa-66f5-4245-8814-2675899ecf3b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0496fc17-fb3f-43c7-809c-d5cb32f02ea8" LastKnownName="ConstraintChangedEvent" />
+            </type_NamedElement>
+          </property>
+          <property Id="719a579d-9419-4eeb-8789-131b5307c10c" name="Down" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="094e6215-52eb-48cb-8c0a-46ca7bbd6c83" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="32344c0e-ab6a-43da-a74d-c1c815e8494c" LastKnownName="ConstraintChangedEvent" />
+            </type_NamedElement>
+          </property>
+          <property Id="f43ba01e-4ef5-4d19-b3b0-e34ba34104f9" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="64284f03-7bad-4956-885e-03acc16067ec" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fd934a49-e2d3-4358-9bd4-34a2c4bbf887" LastKnownName="ConstraintChangedEvent" />
+            </type_NamedElement>
+          </property>
+          <property Id="83edaf24-d550-43a0-870a-1f76d3dceab0" name="Change" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a39cd9b2-9816-4271-b155-150659771d45" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="48cef921-e627-4684-9f4f-b74a70360749" LastKnownName="ConstraintChangedEvent" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="786c61ab-8e9f-40eb-9e9f-f16d0b05ce3e" name="SetColor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="88de8bcc-6026-4c48-994b-87e864171fe5" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8774ea80-1e33-4ba2-bfc9-34658202884c" name="Color" direction="In" isUnique="false">
+                  <elementDefinition Id="0debcb56-4b35-4cd7-8223-3f1e3a22351c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="bcb4cb50-fe5a-4e44-8e9d-008f3e8a554a" name="SetName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b36a70f6-a74f-459c-a5dc-0c4b7e5e61e3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="891af422-a66d-4758-8dd6-3e4f9cd883aa" name="string" direction="In" isUnique="false">
+                  <elementDefinition Id="6acb91e7-8aa5-4029-b071-0eb9569c2894" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="96bd4a5a-33ed-4b9f-a1fc-d94bfd809afa" name="DrawInspectorUI" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b7d40b02-f228-4455-a807-efde8b8b0344" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="173d1405-02a9-4a19-9a39-6b36f246102e" name="AppContext" direction="In" isUnique="false">
+                  <elementDefinition Id="72a8a7b2-60cf-4c62-b142-730295786176" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="d320f0ba-5f26-4bf6-9d84-0d2c578a7caa" name="DrawSceneUI" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c6089c6b-54ec-4796-8b57-534d86da0465" />
+          </operation>
+          <operation Id="f79aacbb-c7f0-47b7-9ee9-679c101d13ce" name="Toggle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cb7b5e36-caee-4c9e-bfc3-0187d7dcad77" />
+          </operation>
+          <operation Id="efcbabbe-90a7-461b-ab95-a7da1333a7e9" name="Freeze" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="52d924e2-22ba-4b89-ad74-0303a623d9fc" />
+          </operation>
+          <operation Id="095da8dc-5c14-4a85-acbf-f4e3db67492c" name="Apply" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="06e2ec5d-dba1-4e9c-8f32-c0319c39018d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="12def352-d8ec-4ee7-95b6-19c70ac52855" name="Terrain" direction="In" isUnique="false">
+                  <elementDefinition Id="a6f76840-d379-4536-9986-e18cb0ec6544" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="49dbbc65-51a3-4dbb-bd05-70300b97b512" name="Undo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="63da1673-5420-4ff3-8c86-019be7a435c6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="664ed087-c733-4d21-a8fe-b82e6275bd33" name="Terrain" direction="In" isUnique="false">
+                  <elementDefinition Id="ef3108d2-2861-4d94-b0c9-eabadbe10fd0" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="11b2727c-ad44-429b-b77a-191cd0e7c890" name="Visibility" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="30ab2df8-a21e-49a6-8f05-7ed7defc84fe" />
+        <ownedOperations>
+          <operation Id="007d285e-1447-4c4a-8a01-4e8a5becf8ca" name="Toggle" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="785f0a44-c9bd-49a6-90e0-f1e3d4f39d93" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="ba285b16-47f2-4884-8005-069e5d745ff1" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="9cb00ccf-01fc-459a-a53b-db8dea3006e0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="b386e214-88d3-4d70-8246-6965eb865747" name="Freezable" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9fbf54fc-5076-4759-8c86-8604333fd4fe" />
+        <ownedOperations>
+          <operation Id="61e78cc3-ea87-418d-a68b-28d276394f45" name="Freeze" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7764c89a-db19-4f5f-8240-e7d01dca3a28" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="49d91ce0-946f-43d8-b8ac-339bd162c588" name="Terrain" isAbstract="false" isLeaf="false" cachedFullName="Terrain">
+        <elementDefinition Id="972257e4-84d2-431e-a4c7-aac2f9541e2f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b2d65a55-4412-493c-8c09-424ead63dcbf" name="ConstraintChangedEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="44e42ac3-d511-460e-94be-b41c9a1eea1e" />
+        <ownedOperationsInternal>
+          <operation Id="7d08b8e2-cf9f-4fbe-9e72-aa31a1bced19" name="ConstraintChanged" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="11e88ae6-b1a4-4c58-8de2-2646ae060dd8" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="112d33d7-88e8-40ab-b61f-8587d79fa192" name="Constraint" direction="In" isUnique="false">
+                  <elementDefinition Id="8559e2cf-3115-46c9-9f31-7649f3dcd8fa" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1b3b77e1-71c5-4a6e-9201-9450b82c417b" direction="Return" isUnique="false">
+                  <elementDefinition Id="943de258-c1f4-4a52-b216-ca505392bba0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="112d48ef-8b58-4ba0-914c-21c5e7b4a672" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="112d48ef-8b58-4ba0-914c-21c5e7b4a672" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="65a0b86e-4719-4440-a945-876616f18a70" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0496fc17-fb3f-43c7-809c-d5cb32f02ea8" name="ConstraintChangedEvent" isAbstract="false" isLeaf="false" cachedFullName="TerrainToolDesign::ConstraintChangedEvent">
+        <elementDefinition Id="44e42ac3-d511-460e-94be-b41c9a1eea1e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="32344c0e-ab6a-43da-a74d-c1c815e8494c" name="ConstraintChangedEvent" isAbstract="false" isLeaf="false" cachedFullName="TerrainToolDesign::ConstraintChangedEvent">
+        <elementDefinition Id="44e42ac3-d511-460e-94be-b41c9a1eea1e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fd934a49-e2d3-4358-9bd4-34a2c4bbf887" name="ConstraintChangedEvent" isAbstract="false" isLeaf="false" cachedFullName="TerrainToolDesign::ConstraintChangedEvent">
+        <elementDefinition Id="44e42ac3-d511-460e-94be-b41c9a1eea1e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="48cef921-e627-4684-9f4f-b74a70360749" name="ConstraintChangedEvent" isAbstract="false" isLeaf="false" cachedFullName="TerrainToolDesign::ConstraintChangedEvent">
+        <elementDefinition Id="44e42ac3-d511-460e-94be-b41c9a1eea1e" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="2ac97596-cdda-44d8-bfde-38e14e82fa87" name="TerrainToolDesign">
     <elementDefinition Id="7fa4722e-3e82-419e-bbbc-0b7cb5d3471c" />

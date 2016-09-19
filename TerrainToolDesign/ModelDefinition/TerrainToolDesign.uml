@@ -148,7 +148,17 @@
             isStatic="false"
             isAbstract="true"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5fb93b1a-d84b-41d7-af43-2689ed17abc9"
+                  name="AppContext"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="08015e8e-3512-425d-bec2-b01d2cc36ade"
             name="SetName"
@@ -279,7 +289,17 @@
             isStatic="false"
             isAbstract="true"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c37114c2-5706-47bb-8e2d-1dc794750a14"
+                  name="ConstraintsContext"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperations>
       </Interface>
     </packageHasNamedElement>
@@ -320,6 +340,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="b9abf984-550a-4f31-a115-2a562a02b08c">
+            <interfaceMoniker
+              Id="a94217d6-547c-4586-9e57-385b2fb6bd88"
+              LastKnownName="ScriptableObject"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <ownedAttributesInternal>
           <property
             Id="117b2249-c4fc-44dd-a8eb-442dcf43a0b9"
@@ -883,7 +912,7 @@
     <packageHasNamedElement>
       <class
         Id="e5f515ce-d6a9-4abd-b1a3-6fb9859853f7"
-        name="Constraints"
+        name="ConstraintsContext"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -936,7 +965,170 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="d272b311-fae3-47f6-8f4e-08e8b8e2101c"
+            isDerived="false"
+            sourceEndRoleName="Constraints"
+            targetEndRoleName="Constraint"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="91be3827-1c81-452e-a58b-ee0f3aa0984d"
+              LastKnownName="Constraint"
+              LastKnownLocation="TerrainToolDesign.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="843706c0-e954-4cb6-8f8c-f631e61be16d"
+                  name="Constraints"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="22b884dc-1f60-4951-beda-78e4a2be2d49"
+                  name="Constraint"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="87b428c8-7916-480b-8be8-5f1b8128c4ae"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="93d34021-ce27-4406-a778-dda63eee7592"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="eb7ed127-a1ca-4896-82b2-9a11fefacd10"
+            name="_terrain"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="972257e4-84d2-431e-a4c7-aac2f9541e2f"
+                LastKnownName="Terrain"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f805cfaa-3e2a-4d05-8e56-65c71c6f3120"
+            name="OnConstraintUp"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c6e1f172-f1a3-4e76-a138-ffab1930fa08"
+                  name="Constraint"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="60eba53e-2646-445a-a601-b41d56bb537b"
+            name="OnConstraintDown"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad7571ab-f70e-4243-a902-ad879d880a63"
+                  name="Constraint"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4632202a-2749-4f1a-8148-eca9d850278b"
+            name="OnConstraintDelete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1c1c7f1f-99c8-4aa6-82ce-90a1566ee6f7"
+                  name="Constraint"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d8545e07-c62f-4923-84ff-e3629618a502"
+            name="OnConstraintFrozen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2060d292-f9d3-4856-81a6-03496b0b7300"
+                  name="Constraint"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="53672c72-a235-49a8-897f-c4758a96f107"
+            name="OnSceneGUI"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="e7cccc38-f038-400c-837f-ad7521134694"
+            name="OnInspectorGUI"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -952,7 +1144,531 @@
         name="Constraint"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="cef75f63-5b17-4bb3-baa5-c80098bc3f3d">
+            <interfaceMoniker
+              Id="a94217d6-547c-4586-9e57-385b2fb6bd88"
+              LastKnownName="ScriptableObject"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="bdced906-9ea4-42e4-ab6d-af23f28f2b7c">
+            <interfaceMoniker
+              Id="5e693782-467a-400e-8de4-934290dc6ddd"
+              LastKnownName="Colorizable"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="15b49afa-ec41-47dc-be21-a5aebd122031">
+            <interfaceMoniker
+              Id="79dbe68f-6d10-43f7-996d-5bba2d9525d8"
+              LastKnownName="Nameable"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="9381bb3e-2fda-4903-88e6-12e6750e1065">
+            <interfaceMoniker
+              Id="e5fca5bc-2adc-4527-a491-9ec2ac23be9c"
+              LastKnownName="Inspectable"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="49647db3-b2a5-4026-9ec8-d963eaa48fd0">
+            <interfaceMoniker
+              Id="9f141f26-f9b9-41c5-829e-baa876a5dc5f"
+              LastKnownName="Displayable"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="d5503f86-986d-4c11-80e3-2a13c2f2cd3e">
+            <interfaceMoniker
+              Id="30ab2df8-a21e-49a6-8f05-7ed7defc84fe"
+              LastKnownName="Visibility"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="a76d3c6f-3b65-452a-bb86-237fa1d9af62">
+            <interfaceMoniker
+              Id="9fbf54fc-5076-4759-8c86-8604333fd4fe"
+              LastKnownName="Freezable"
+              LastKnownLocation="TerrainToolDesign.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="28c09790-900f-40fd-a3ee-769d76b0e892"
+            isDerived="false"
+            sourceEndRoleName="Constraint"
+            targetEndRoleName="ConstraintChangedEvent"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="44e42ac3-d511-460e-94be-b41c9a1eea1e"
+              LastKnownName="ConstraintChangedEvent"
+              LastKnownLocation="TerrainToolDesign.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c477dee7-0c80-408a-bd34-a8678cd61c9c"
+                  name="Constraint"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c59f6915-6032-4415-b299-f5528671d6d7"
+                  name="ConstraintChangedEvent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="247b145a-08c9-4a79-ba1b-733991e41a05"
+            name="_textureSource"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="256f2d21-9c0d-4469-a7bc-c5890f1aad59"
+                LastKnownName="TextureSource"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f39b36ea-11fc-4f12-b977-5edaa01fd344"
+            name="_previousHeights"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <lowerValueInternal>
+              <literalString
+                Id="0976264b-e5a1-4d72-b304-20a2a219a5b4"
+                name="Lower"
+                value="," />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="68eb5e91-ee7f-49fb-9c18-5bea449c5526"
+                name="Upper"
+                value="," />
+            </upperValueInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d58557f1-595a-4d3b-b022-24d9c38be108"
+                LastKnownName="float"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="79bd94bf-fa8f-4647-93d6-ae68de92007f"
+            name="_rotationAngle"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d58557f1-595a-4d3b-b022-24d9c38be108"
+                LastKnownName="float"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9ed156fe-aa12-46b6-bd5d-f7f136fe3bd9"
+            name="_strength"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d58557f1-595a-4d3b-b022-24d9c38be108"
+                LastKnownName="float"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="10c81822-fae7-4d97-8ee4-ab2203b256e9"
+            name="_isFrozen"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="9cb00ccf-01fc-459a-a53b-db8dea3006e0"
+                LastKnownName="bool"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6dd4c9fa-66f5-4245-8814-2675899ecf3b"
+            name="Up"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="44e42ac3-d511-460e-94be-b41c9a1eea1e"
+                LastKnownName="ConstraintChangedEvent"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="094e6215-52eb-48cb-8c0a-46ca7bbd6c83"
+            name="Down"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="44e42ac3-d511-460e-94be-b41c9a1eea1e"
+                LastKnownName="ConstraintChangedEvent"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="64284f03-7bad-4956-885e-03acc16067ec"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="44e42ac3-d511-460e-94be-b41c9a1eea1e"
+                LastKnownName="ConstraintChangedEvent"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a39cd9b2-9816-4271-b155-150659771d45"
+            name="Change"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="44e42ac3-d511-460e-94be-b41c9a1eea1e"
+                LastKnownName="ConstraintChangedEvent"
+                LastKnownLocation="TerrainToolDesign.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="88de8bcc-6026-4c48-994b-87e864171fe5"
+            name="SetColor"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0debcb56-4b35-4cd7-8223-3f1e3a22351c"
+                  name="Color"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b36a70f6-a74f-459c-a5dc-0c4b7e5e61e3"
+            name="SetName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6acb91e7-8aa5-4029-b071-0eb9569c2894"
+                  name="string"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b7d40b02-f228-4455-a807-efde8b8b0344"
+            name="DrawInspectorUI"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="72a8a7b2-60cf-4c62-b142-730295786176"
+                  name="AppContext"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c6089c6b-54ec-4796-8b57-534d86da0465"
+            name="DrawSceneUI"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="cb7b5e36-caee-4c9e-bfc3-0187d7dcad77"
+            name="Toggle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="52d924e2-22ba-4b89-ad74-0303a623d9fc"
+            name="Freeze"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="06e2ec5d-dba1-4e9c-8f32-c0319c39018d"
+            name="Apply"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a6f76840-d379-4536-9986-e18cb0ec6544"
+                  name="Terrain"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="63da1673-5420-4ff3-8c86-019be7a435c6"
+            name="Undo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ef3108d2-2861-4d94-b0c9-eabadbe10fd0"
+                  name="Terrain"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="5274b24b-8294-48f7-8f3f-4704962158ed"
+        name="Toggable"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="595ad0df-750f-4c85-a8b2-fee9b36a6093"
+            name="Toggle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="30ab2df8-a21e-49a6-8f05-7ed7defc84fe"
+        name="Visibility"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="785f0a44-c9bd-49a6-90e0-f1e3d4f39d93"
+            name="Toggle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="9cb00ccf-01fc-459a-a53b-db8dea3006e0"
+        name="bool" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="9fbf54fc-5076-4759-8c86-8604333fd4fe"
+        name="Freezable"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="7764c89a-db19-4f5f-8240-e7d01dca3a28"
+            name="Freeze"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="972257e4-84d2-431e-a4c7-aac2f9541e2f"
+        name="Terrain" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="44e42ac3-d511-460e-94be-b41c9a1eea1e"
+        name="ConstraintChangedEvent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="11e88ae6-b1a4-4c58-8de2-2646ae060dd8"
+            name="ConstraintChanged"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8559e2cf-3115-46c9-9f31-7649f3dcd8fa"
+                  name="Constraint"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="943de258-c1f4-4a52-b216-ca505392bba0"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="65a0b86e-4719-4440-a945-876616f18a70"
+                      LastKnownName="void"
+                      LastKnownLocation="TerrainToolDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="65a0b86e-4719-4440-a945-876616f18a70"
+        name="void" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b54651a4-0998-40a2-b96e-d41f51ecf8cb"
+        name="AppContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="94561f62-c3a9-4b35-8849-f93f195c367d"
+            name="_"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
