@@ -30,6 +30,16 @@ public class ConstraintsContextDrawer : Editor
     /// </summary>
     private void OnSceneGUI()
     {
+        List<Constraint> constraints = _context.Constraints;
+        Vector3 terrainPos = _context.Terrain.GetPosition();
+        float width = _context.Terrain.terrainData.size.x;
+        float length = _context.Terrain.terrainData.size.z;
+
+        for (int i = 0; i < constraints.Count; i++)
+        {
+            constraints[i].DrawTransformHandle(target, terrainPos.x, terrainPos.x + width,
+                terrainPos.z, terrainPos.z + length);
+        }
     }
 
     #region InspectorHelpers
@@ -129,7 +139,7 @@ public class ConstraintsContextDrawer : Editor
 
     public void OnConstraintChanged(Constraint constraint)
     {
-        Debug.Log("Constraint changed");
+        
     }
 
     #endregion

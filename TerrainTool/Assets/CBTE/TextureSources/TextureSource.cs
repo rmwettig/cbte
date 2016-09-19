@@ -29,7 +29,7 @@ public abstract class TextureSource : ScriptableObject, Inspectable, Nameable
 	}
 
 
-    public abstract void DrawInspectorUI(ConstraintsContext context);
+    public abstract void DrawInspectorUI(UnityEngine.Object target);
     
 }
 

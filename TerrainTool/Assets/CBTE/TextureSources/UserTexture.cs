@@ -13,7 +13,7 @@ public class UserTexture : TextureSource
 	}
 
 
-    public override void DrawInspectorUI(ConstraintsContext context)
+    public override void DrawInspectorUI(UnityEngine.Object target)
     {
         throw new NotImplementedException();
     }
