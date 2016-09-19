@@ -17,11 +17,30 @@ public class ConstraintsContextDrawer : Editor
 
     public override void OnInspectorGUI()
     {
-
+        DrawMenuBar();
     }
 
     private void OnSceneGUI()
     {
-        
+
     }
+
+    #region InspectorHelpers
+
+    private void DrawMenuBar()
+    {
+        EditorGUILayout.BeginHorizontal();
+        if(GUILayout.Button("Add"))
+        {
+
+        }
+        if(GUILayout.Button("Apply"))
+        {
+
+        }
+        EditorGUILayout.EndHorizontal();
+
+    }
+
+    #endregion
 }
