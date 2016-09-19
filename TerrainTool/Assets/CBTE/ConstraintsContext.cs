@@ -12,11 +12,10 @@ public class ConstraintsContext : MonoBehaviour
     [SerializeField]
     private List<Constraint> _constraints = new List<Constraint>(1);
     private bool _noError = false;
-	public TextureSourceManager TextureSourceManager
-	{
-        get { return _tsm; }
-	}
+    public TextureSourceManager TextureSourceManager { get { return _tsm; } }
 
+    public List<Constraint> Constraints { get { return _constraints; } }
+    public Terrain Terrain { get { return _terrain; } }
     private void OnEnable()
     {
         _terrain = GetComponent<Terrain>();
@@ -32,7 +31,7 @@ public class ConstraintsContext : MonoBehaviour
             }
             _noError = true;
         }
-        
+
     }
 
     private void OnDisable()
@@ -43,37 +42,13 @@ public class ConstraintsContext : MonoBehaviour
     /// Render constraint representations in the scene view
     /// </summary>
     public void OnDrawGizmosSelected()
-	{
+    {
         if (!_noError) return;
-		foreach(Constraint c in _constraints)
+        foreach (Constraint c in _constraints)
         {
             c.DrawGizmo();
         }
-	}
-
-    #region EventHandler
-
-    public virtual void OnConstraintUp(Constraint constraint)
-    {
-        throw new System.NotImplementedException();
     }
-
-    public virtual void OnConstraintDown(Constraint constraint)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void OnConstraintDelete(Constraint constraint)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void OnConstraintFrozen(Constraint constraint)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    #endregion
 
 }
 
