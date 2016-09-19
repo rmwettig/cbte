@@ -13,29 +13,29 @@ public class TextureSourceManager : ScriptableObject
 		set;
 	}
 
-	public virtual TextureSource FindSourceByName(string name)
+	public TextureSource FindSourceByName(string name)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual TextureSource CreateTextureSource()
+	public TextureSource CreateTextureSource()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual TextureSource Duplicate(string name)
+	public TextureSource Duplicate(string name)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual TextureSource[] GetTextureSources()
+	public TextureSource[] GetTextureSources()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void OnDisable()
+	public void OnDisable()
 	{
-		throw new System.NotImplementedException();
+        Debug.Log("Not yet implemented");
 	}
 
 }
