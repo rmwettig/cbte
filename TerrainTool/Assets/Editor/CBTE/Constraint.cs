@@ -7,65 +7,20 @@ using UnityEngine;
 
 public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, Displayable, Visibility, Freezable
 {
-	private TextureSource _textureSource
-	{
-		get;
-		set;
-	}
+    public event ConstraintChangedEvent Up;
+    public event ConstraintChangedEvent Down;
+    public event ConstraintChangedEvent Delete;
+    public event ConstraintChangedEvent Change;
 
-	private float _previousHeights
-	{
-		get;
-		set;
-	}
+    private TextureSource _textureSource;
 
-	private float _rotationAngle
-	{
-		get;
-		set;
-	}
+    private float[,] _previousHeights;
 
-	private float _strength
-	{
-		get;
-		set;
-	}
+    private float _rotationAngle;
 
-	private bool _isFrozen
-	{
-		get;
-		set;
-	}
+    private float _strength;
 
-	public virtual ConstraintChangedEvent Up
-	{
-		get;
-		set;
-	}
-
-	public virtual ConstraintChangedEvent Down
-	{
-		get;
-		set;
-	}
-
-	public virtual ConstraintChangedEvent Delete
-	{
-		get;
-		set;
-	}
-
-	public virtual ConstraintChangedEvent Change
-	{
-		get;
-		set;
-	}
-
-	public virtual ConstraintChangedEvent ConstraintChangedEvent
-	{
-		get;
-		set;
-	}
+    private bool _isFrozen;
 
 	public virtual void SetColor(Color color)
 	{
