@@ -21,12 +21,15 @@ public abstract class TextureSource : ScriptableObject, Inspectable, Nameable
 
 	public abstract Texture2D CreateTexture();
 
-	public abstract void DrawInspectorUI(object AppContext);
+	
 
 	public virtual void SetName(string name)
 	{
 		throw new System.NotImplementedException();
 	}
 
+
+    public abstract void DrawInspectorUI(ConstraintsContext context);
+    
 }
 

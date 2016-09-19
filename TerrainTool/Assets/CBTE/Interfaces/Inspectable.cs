@@ -6,7 +6,7 @@ using System.Text;
 
 public interface Inspectable 
 {
-	void DrawInspectorUI(object ConstraintsContext);
+	void DrawInspectorUI(ConstraintsContext context);
 
 }
 

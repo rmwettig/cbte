@@ -30,7 +30,7 @@ public class TextureSourceFilter : TextureSource
         throw new NotImplementedException();
     }
 
-    public override void DrawInspectorUI(object AppContext)
+    public override void DrawInspectorUI(ConstraintsContext context)
     {
         throw new NotImplementedException();
     }

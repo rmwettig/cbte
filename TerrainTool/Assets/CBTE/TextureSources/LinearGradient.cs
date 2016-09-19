@@ -12,8 +12,7 @@ public class LinearGradient : TextureSource
 		throw new System.NotImplementedException();
 	}
 
-
-    public override void DrawInspectorUI(object AppContext)
+    public override void DrawInspectorUI(ConstraintsContext context)
     {
         throw new NotImplementedException();
     }

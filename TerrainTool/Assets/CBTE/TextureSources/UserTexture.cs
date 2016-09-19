@@ -13,7 +13,7 @@ public class UserTexture : TextureSource
 	}
 
 
-    public override void DrawInspectorUI(object AppContext)
+    public override void DrawInspectorUI(ConstraintsContext context)
     {
         throw new NotImplementedException();
     }
