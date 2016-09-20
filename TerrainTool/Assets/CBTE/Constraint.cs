@@ -123,12 +123,12 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 		throw new System.NotImplementedException();
 	}
 
-	public void Apply(object Terrain)
+	public void Apply(Terrain terrain)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public void Undo(object Terrain)
+	public void Undo(Terrain terrain)
 	{
         Debug.Log("TODO: undo impl");
 	}
