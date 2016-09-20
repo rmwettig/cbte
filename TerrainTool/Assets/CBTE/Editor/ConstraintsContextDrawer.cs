@@ -129,7 +129,9 @@ public class ConstraintsContextDrawer : Editor
 
     public void OnConstraintDelete(Constraint constraint)
     {
+        constraint.Undo(_context.Terrain);
         _context.Constraints.Remove(constraint);
+        EditorUtility.SetDirty(_context);
     }
 
     public void OnConstraintFrozen(Constraint constraint)
