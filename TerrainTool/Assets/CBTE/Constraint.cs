@@ -44,7 +44,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         _name = name;
 	}
 
-	public void DrawInspectorUI(UnityEngine.Object target)
+    public void DrawInspectorUI(ConstraintsContext context)
 	{
         _isOpen = EditorGUILayout.Foldout(_isOpen, _name);
         if(_isOpen)
@@ -60,7 +60,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 
             if(GUI.changed)
             {
-                EditorUtility.SetDirty(target);
+                EditorUtility.SetDirty(context);
                 if (Change != null) Change(this);
             }
         }
