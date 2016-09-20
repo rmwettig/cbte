@@ -129,7 +129,7 @@ public class ConstraintsContextDrawer : Editor
 
     public void OnConstraintDelete(Constraint constraint)
     {
-        throw new System.NotImplementedException();
+        _context.Constraints.Remove(constraint);
     }
 
     public void OnConstraintFrozen(Constraint constraint)

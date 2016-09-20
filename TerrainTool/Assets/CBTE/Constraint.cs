@@ -32,6 +32,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 
     #region Inspector UI state
     private bool _isOpen = false;
+    private bool _settingsOpen = false;
     #endregion Inspector UI state
 
     public void SetColor(Color color)
@@ -51,10 +52,8 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         {
             EditorGUILayout.BeginVertical();
             EditorGUI.indentLevel++;
-            _color = EditorGUILayout.ColorField("Outline color", _color);
-            _position = EditorGUILayout.Vector3Field("Position", _position, GUILayout.MaxWidth(200f));
-            UpdateDimensions();
-
+            DrawMenuBar();
+            DrawSettingsUI();
             EditorGUI.indentLevel--;
             EditorGUILayout.EndVertical();
 
@@ -65,6 +64,36 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
             }
         }
 	}
+
+    private void DrawMenuBar()
+    {
+        if(GUILayout.Button("Up", GUILayout.MaxWidth(30f)))
+        {
+
+        }
+        if (GUILayout.Button("Down", GUILayout.MaxWidth(30f)))
+        {
+
+        }
+        if (GUILayout.Button("Del", GUILayout.MaxWidth(30f)))
+        {
+            if (Delete != null) Delete(this);
+        }
+    }
+
+    /// <summary>
+    /// Draws UI controls to change properties like color, size etc.
+    /// </summary>
+    private void DrawSettingsUI()
+    {
+        _settingsOpen = EditorGUILayout.Foldout(_settingsOpen, "Settings");
+        if (_settingsOpen)
+        {
+            _color = EditorGUILayout.ColorField("Outline color", _color);
+            _position = EditorGUILayout.Vector3Field("Position", _position, GUILayout.MaxWidth(200f));
+            UpdateDimensions();
+        }
+    }
 
     private void UpdateDimensions()
     {
