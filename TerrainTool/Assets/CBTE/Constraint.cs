@@ -67,18 +67,21 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 
     private void DrawMenuBar()
     {
-        if(GUILayout.Button("Up", GUILayout.MaxWidth(30f)))
+        EditorGUILayout.BeginHorizontal();
+        if(GUILayout.Button("Up", GUILayout.MaxWidth(50f)))
         {
-
+            if (Up != null) Up(this);
         }
-        if (GUILayout.Button("Down", GUILayout.MaxWidth(30f)))
+        if (GUILayout.Button("Down", GUILayout.MaxWidth(50f)))
         {
-
+            if (Down != null) Down(this);
         }
-        if (GUILayout.Button("Del", GUILayout.MaxWidth(30f)))
+        if (GUILayout.Button("Del", GUILayout.MaxWidth(50f)))
         {
             if (Delete != null) Delete(this);
         }
+        EditorGUILayout.EndHorizontal();
+
     }
 
     /// <summary>
@@ -110,22 +113,22 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         Gizmos.color = oldColor;
 	}
 
-	public virtual void Toggle()
+	public void Toggle()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Freeze()
+	public void Freeze()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Apply(object Terrain)
+	public void Apply(object Terrain)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Undo(object Terrain)
+	public void Undo(object Terrain)
 	{
         Debug.Log("TODO: undo impl");
 	}
