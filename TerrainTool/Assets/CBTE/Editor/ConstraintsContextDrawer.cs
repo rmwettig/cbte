@@ -51,6 +51,7 @@ public class ConstraintsContextDrawer : Editor
         {
             Constraint c = ScriptableObject.CreateInstance<Constraint>();
             c.SetName("Constraint (" + _context.Constraints.Count + ")");
+            RegisterCallbacks(c);
             _context.Constraints.Add(c);
             EditorUtility.SetDirty(target);
         }
@@ -130,8 +131,10 @@ public class ConstraintsContextDrawer : Editor
     public void OnConstraintDelete(Constraint constraint)
     {
         constraint.Undo(_context.Terrain);
+        DeregisterCallbacks(constraint);
         _context.Constraints.Remove(constraint);
         EditorUtility.SetDirty(_context);
+        Debug.Log("# Constraints: " + _context.Constraints.Count);
     }
 
     public void OnConstraintFrozen(Constraint constraint)

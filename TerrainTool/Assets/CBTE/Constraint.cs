@@ -127,7 +127,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 
 	public virtual void Undo(object Terrain)
 	{
-		throw new System.NotImplementedException();
+        Debug.Log("TODO: undo impl");
 	}
 
     public void DrawTransformHandle(UnityEngine.Object target, float xMin, float xMax, float zMin, float zMax)
