@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TextureSourceManager : ScriptableObject
 {
+    private TextureSource[] _prototypes = null;
     private TextureSource[] _textureSources = null;
     private Dictionary<TextureSource, int> _referenceCount = null;
 
@@ -40,6 +41,11 @@ public class TextureSourceManager : ScriptableObject
     {
         _textureSources = new TextureSource[1];
         _referenceCount = new Dictionary<TextureSource, int>();
+    }
+
+    public void AddPrototypes(params TextureSource[] prototypes)
+    {
+        _prototypes = prototypes;
     }
 
     private TextureSource[] RebuildSources()
