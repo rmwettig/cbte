@@ -7,5 +7,6 @@ using System.Text;
 public interface Nameable 
 {
 	void SetName(string name);
+    string GetName();
 }
 

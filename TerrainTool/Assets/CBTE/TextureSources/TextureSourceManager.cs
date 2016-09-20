@@ -1,22 +1,20 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class TextureSourceManager : ScriptableObject
 {
-	private Dictionary<int,int> _referenceCount
-	{
-		get;
-		set;
-	}
+    private TextureSource[] _textureSources = null;
+    private Dictionary<TextureSource, int> _referenceCount = null;
 
 	public TextureSource FindSourceByName(string name)
 	{
 		throw new System.NotImplementedException();
 	}
+
+    public TextureSource FindSourceByIndex(int index)
+    {
+        return _textureSources[index];
+    }
 
 	public TextureSource CreateTextureSource()
 	{
@@ -30,7 +28,7 @@ public class TextureSourceManager : ScriptableObject
 
 	public TextureSource[] GetTextureSources()
 	{
-		throw new System.NotImplementedException();
+        return _textureSources;
 	}
 
 	public void OnDisable()
@@ -38,5 +36,21 @@ public class TextureSourceManager : ScriptableObject
         Debug.Log("Not yet implemented");
 	}
 
+    public void OnEnable()
+    {
+        _textureSources = new TextureSource[1];
+        _referenceCount = new Dictionary<TextureSource, int>();
+    }
+
+    private TextureSource[] RebuildSources()
+    {
+        TextureSource[] arr = new TextureSource[_referenceCount.Keys.Count];
+        int i = 0;
+        foreach(KeyValuePair<TextureSource, int> kv in _referenceCount)
+        {
+            arr[i++] = kv.Key;
+        }
+        return arr;
+    }
 }
 

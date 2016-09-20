@@ -32,43 +32,48 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 
     #region Inspector UI state
     private bool _isOpen = false;
-    private bool _settingsOpen = false;
+    private bool _isSettingsOpen = false;
+    private bool _isTextureSourceOpen = false;
+    private int _textureSourceIndex = 0;
     #endregion Inspector UI state
 
     public void SetColor(Color color)
-	{
+    {
         _color = color;
-	}
+    }
 
-	public void SetName(string name)
-	{
+    public void SetName(string name)
+    {
         _name = name;
-	}
+    }
 
     public void DrawInspectorUI(ConstraintsContext context)
-	{
+    {
         _isOpen = EditorGUILayout.Foldout(_isOpen, _name);
-        if(_isOpen)
+        if (_isOpen)
         {
             EditorGUILayout.BeginVertical();
             EditorGUI.indentLevel++;
             DrawMenuBar();
             DrawSettingsUI();
+            DrawTextureSourceUI(context);
             EditorGUI.indentLevel--;
             EditorGUILayout.EndVertical();
 
-            if(GUI.changed)
+            if (GUI.changed)
             {
                 EditorUtility.SetDirty(context);
                 if (Change != null) Change(this);
             }
         }
-	}
+    }
+
+
 
     private void DrawMenuBar()
     {
         EditorGUILayout.BeginHorizontal();
-        if(GUILayout.Button("Up", GUILayout.MaxWidth(50f)))
+        if (GUILayout.Button("Up", GUILayout.MaxWidth(50f)))
         {
             if (Up != null) Up(this);
         }
@@ -89,12 +94,16 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     /// </summary>
     private void DrawSettingsUI()
     {
-        _settingsOpen = EditorGUILayout.Foldout(_settingsOpen, "Settings");
-        if (_settingsOpen)
+        _isSettingsOpen = EditorGUILayout.Foldout(_isSettingsOpen, "Settings");
+        if (_isSettingsOpen)
         {
+            EditorGUI.indentLevel++;
+            _name = EditorGUILayout.TextField("Name:", _name);
             _color = EditorGUILayout.ColorField("Outline color", _color);
             _position = EditorGUILayout.Vector3Field("Position", _position, GUILayout.MaxWidth(200f));
             UpdateDimensions();
+            EditorGUI.indentLevel--;
+
         }
     }
 
@@ -105,33 +114,65 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         _dimension = new Vector3(_width, 0, _length);
     }
 
-	public void DrawGizmo()
-	{
+    /// <summary>
+    /// Draws the inspector controls to choose another texture
+    /// </summary>
+    /// <param name="context"></param>
+    private void DrawTextureSourceUI(ConstraintsContext context)
+    {
+        //draw details only if section is expanded
+        _isTextureSourceOpen = EditorGUILayout.Foldout(_isTextureSourceOpen, "Texture Source");
+        if (_isTextureSourceOpen)
+        {
+            EditorGUI.indentLevel++;
+            //create a list of all available sources
+            TextureSourceManager tsm = context.TextureSourceManager;
+            TextureSource[] ts = tsm.GetTextureSources();
+            string[] textureSourceNames = new string[ts.Length + 1];
+            if (_textureSource == null) textureSourceNames[0] = "Select source";
+     
+            for (int i = 1; i < ts.Length; i++)
+            {
+                if (ts[i] == null) continue;
+                textureSourceNames[i] = ts[i].GetName(); 
+            }
+            int oldIndex = _textureSourceIndex;
+            _textureSourceIndex = EditorGUILayout.Popup(_textureSourceIndex, textureSourceNames);
+            if (oldIndex != _textureSourceIndex)
+            {
+                _textureSource = tsm.FindSourceByIndex(_textureSourceIndex); 
+            }
+            EditorGUI.indentLevel--;        
+        }
+    }
+
+    public void DrawGizmo()
+    {
         Color oldColor = Gizmos.color;
         Gizmos.color = _color;
         Gizmos.DrawWireCube(_position, _dimension);
         Gizmos.color = oldColor;
-	}
+    }
 
-	public void Toggle()
-	{
-		throw new System.NotImplementedException();
-	}
+    public void Toggle()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public void Freeze()
-	{
-		throw new System.NotImplementedException();
-	}
+    public void Freeze()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public void Apply(Terrain terrain)
-	{
-		throw new System.NotImplementedException();
-	}
+    public void Apply(Terrain terrain)
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public void Undo(Terrain terrain)
-	{
+    public void Undo(Terrain terrain)
+    {
         Debug.Log("TODO: undo impl");
-	}
+    }
 
     public void DrawTransformHandle(UnityEngine.Object target, float xMin, float xMax, float zMin, float zMax)
     {
@@ -162,6 +203,12 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         {
             EditorUtility.SetDirty(target);
         }
+    }
+
+
+    public string GetName()
+    {
+        return _name;
     }
 }
 

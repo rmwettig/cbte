@@ -7,29 +7,23 @@ using UnityEngine;
 
 public abstract class TextureSource : ScriptableObject, Inspectable, Nameable
 {
-	private Texture2D _texture
-	{
-		get;
-		set;
-	}
+    protected Texture2D _texture;
 
-	private string _label
-	{
-		get;
-		set;
-	}
+    private string _name;
 
 	public abstract Texture2D CreateTexture();
+    public abstract void DrawInspectorUI(ConstraintsContext context);
 
 	
 
-	public virtual void SetName(string name)
+	public void SetName(string name)
 	{
-		throw new System.NotImplementedException();
+        _name = name;
 	}
 
-
-    public abstract void DrawInspectorUI(ConstraintsContext context);
-    
+    public string GetName()
+    {
+        return _name;
+    }
 }
 
