@@ -96,8 +96,7 @@ public class TextureSourceManager : ScriptableObject
     /// <summary>
     /// Updates the source names used for selection
     /// </summary>
-    /// <returns>array of source names</returns>
-    private string[] RebuildSourceNames()
+    public void RebuildSourceNames()
     {
         _selectionNames = new string[_textureSources.Count];
         for (int i = 0; i < _textureSources.Count; i++)
@@ -111,8 +110,6 @@ public class TextureSourceManager : ScriptableObject
                 _selectionNames[i] = _textureSources[i].GetName();
             }
         }
-
-        return _selectionNames;
     }
 }
 

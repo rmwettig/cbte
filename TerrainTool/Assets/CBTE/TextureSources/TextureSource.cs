@@ -15,7 +15,12 @@ public abstract class TextureSource : ScriptableObject, Inspectable, Nameable
 	public abstract Texture2D CreateTexture();
     public virtual void DrawInspectorUI(ConstraintsContext context)
     {
-        _name = EditorGUILayout.TextField(_name, GUILayout.MaxWidth(80f));
+        EditorGUI.BeginChangeCheck();
+        _name = EditorGUILayout.TextField(_name, GUILayout.MaxWidth(200f));
+        if(EditorGUI.EndChangeCheck())
+        {
+            context.TextureSourceManager.RebuildSourceNames();
+        }
     }
 
 	

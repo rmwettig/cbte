@@ -135,6 +135,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
             {
                 _textureSource = tsm.FindSourceByIndex(_textureSourceIndex, out _textureSourceIndex);
             }
+            if (_textureSource != null) _textureSource.DrawInspectorUI(context);
             EditorGUI.indentLevel--;
         }
     }
