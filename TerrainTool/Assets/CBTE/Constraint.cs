@@ -127,15 +127,8 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
             EditorGUI.indentLevel++;
             //create a list of all available sources
             TextureSourceManager tsm = context.TextureSourceManager;
-            TextureSource[] ts = tsm.GetTextureSources();
-            string[] textureSourceNames = new string[ts.Length + 1];
-            if (_textureSource == null) textureSourceNames[0] = "Select source";
-     
-            for (int i = 1; i < ts.Length; i++)
-            {
-                if (ts[i] == null) continue;
-                textureSourceNames[i] = ts[i].GetName(); 
-            }
+            string[] textureSourceNames = tsm.GetTextureSourcesNames();
+           
             int oldIndex = _textureSourceIndex;
             _textureSourceIndex = EditorGUILayout.Popup(_textureSourceIndex, textureSourceNames);
             if (oldIndex != _textureSourceIndex)
