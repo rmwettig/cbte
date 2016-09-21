@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 public abstract class TextureSource : ScriptableObject, Inspectable, Nameable
@@ -12,7 +13,10 @@ public abstract class TextureSource : ScriptableObject, Inspectable, Nameable
     private string _name;
 
 	public abstract Texture2D CreateTexture();
-    public abstract void DrawInspectorUI(ConstraintsContext context);
+    public virtual void DrawInspectorUI(ConstraintsContext context)
+    {
+        _name = EditorGUILayout.TextField(_name, GUILayout.MaxWidth(80f));
+    }
 
 	
 

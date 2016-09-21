@@ -15,7 +15,12 @@ public class UserTexture : TextureSource
 
     public override void DrawInspectorUI(ConstraintsContext context)
     {
-        throw new NotImplementedException();
+        base.DrawInspectorUI(context);
+    }
+
+    private void OnEnable()
+    {
+        SetName("UserTexture");
     }
 }
 

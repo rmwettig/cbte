@@ -12,14 +12,46 @@ public class TextureSourceManager : ScriptableObject
         throw new System.NotImplementedException();
     }
 
-    public TextureSource FindSourceByIndex(int index)
+    /// <summary>
+    /// Evaluates the index obtained from the popup menu
+    /// </summary>
+    /// <param name="selectionIndex">menu entry index</param>
+    /// <param name="listIndex">index in the list</param>
+    /// <returns>null if source can not be created</returns>
+    public TextureSource FindSourceByIndex(int selectionIndex, out int listIndex)
     {
-        return _textureSources[index];
+        TextureSource result = null;
+        listIndex = selectionIndex;
+        //if user chose an index related to source creation
+        if(selectionIndex < _prototypeCount)
+        {
+            result = CreateTextureSource(selectionIndex, out listIndex);
+        }
+        else
+        {
+            result = _textureSources[selectionIndex];
+        }
+        return result;
     }
 
-    public TextureSource CreateTextureSource()
+    /// <summary>
+    /// Creates a new texture source instance
+    /// </summary>
+    /// <param name="prototypeIndex">index of source prototype</param>
+    /// <param name="listIndex">index of the newly created source in the list</param>
+    /// <returns>null if creation failed</returns>
+    private TextureSource CreateTextureSource(int prototypeIndex, out int listIndex)
     {
-        throw new System.NotImplementedException();
+        TextureSource source = ScriptableObject.CreateInstance(_textureSources[prototypeIndex].GetType()) as TextureSource;
+        listIndex = -1;
+        if (source != null)
+        {
+            source.SetName(source.GetName() + " (" + _textureSources.Count + ")");
+            listIndex = _textureSources.Count;
+            _textureSources.Add(source);
+            RebuildSourceNames();
+        }
+        return source;
     }
 
     public TextureSource Duplicate(string name)
@@ -39,7 +71,10 @@ public class TextureSourceManager : ScriptableObject
 
     public void OnEnable()
     {
-        _textureSources = new List<TextureSource>();
+        if (_textureSources == null)
+        {
+            _textureSources = new List<TextureSource>(); 
+        }
     }
 
     /// <summary>

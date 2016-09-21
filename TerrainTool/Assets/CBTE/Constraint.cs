@@ -13,16 +13,16 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     public event ConstraintChangedEvent Delete;
     public event ConstraintChangedEvent Change;
 
-    private TextureSource _textureSource;
+    private TextureSource _textureSource = null;
 
-    private float[,] _previousHeights;
+    private float[,] _previousHeights = null;
 
-    private float _rotationAngle;
+    private float _rotationAngle = 0f;
 
-    private float _strength;
+    private float _strength = 1.0f;
 
-    private bool _isFrozen;
-    private string _name;
+    private bool _isFrozen = false;
+    private string _name = "";
     private Vector3 _position = Vector3.zero;
     private Vector3 _dimension = new Vector3(100f, 0, 100f);
     private float _length = 100f;
@@ -34,7 +34,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     private bool _isOpen = false;
     private bool _isSettingsOpen = false;
     private bool _isTextureSourceOpen = false;
-    private int _textureSourceIndex = 0;
+    private int _textureSourceIndex = -1;
     #endregion Inspector UI state
 
     public void SetColor(Color color)
@@ -128,14 +128,14 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
             //create a list of all available sources
             TextureSourceManager tsm = context.TextureSourceManager;
             string[] textureSourceNames = tsm.GetTextureSourcesNames();
-           
+
             int oldIndex = _textureSourceIndex;
             _textureSourceIndex = EditorGUILayout.Popup(_textureSourceIndex, textureSourceNames);
             if (oldIndex != _textureSourceIndex)
             {
-                _textureSource = tsm.FindSourceByIndex(_textureSourceIndex); 
+                _textureSource = tsm.FindSourceByIndex(_textureSourceIndex, out _textureSourceIndex);
             }
-            EditorGUI.indentLevel--;        
+            EditorGUI.indentLevel--;
         }
     }
 

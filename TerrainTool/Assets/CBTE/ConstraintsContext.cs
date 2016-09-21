@@ -28,6 +28,9 @@ public class ConstraintsContext : MonoBehaviour
             if (_tsm == null)
             {
                 _tsm = ScriptableObject.CreateInstance<TextureSourceManager>();
+                UserTexture ut = ScriptableObject.CreateInstance<UserTexture>();
+                ut.SetName("UserTexture");
+                _tsm.AddPrototypes(ut);
             }
             _noError = true;
         }
