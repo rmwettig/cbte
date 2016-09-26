@@ -10,12 +10,12 @@ public static class Utility
     /// <param name="terrainEnd">upper terrain position limit on an axis</param>
     /// <param name="value">position on the world axis</param>
     /// <param name="heightMapResolution"></param>
-    /// <returns>floored int array index</returns>
-    public static int TransformWorldToTextureArrayCoordinates(float terrainStart, float terrainEnd, float value, float heightMapResolution)
+    /// <returns>floored and clamped index</returns>
+    public static int TransformWorldToTextureArrayCoordinates(float terrainStart, float terrainEnd, float value, int heightMapResolution)
     {
         float normalizedDistance = Mathf.Lerp(terrainStart, terrainEnd, value);
         float f = normalizedDistance * heightMapResolution;
-        return Mathf.FloorToInt(f);
+        return Mathf.Clamp(Mathf.FloorToInt(f), 0, heightMapResolution);
     }
 
     /// <summary>
@@ -27,8 +27,7 @@ public static class Utility
     /// <param name="max">axis maximum</param>
     /// <param name="lowerLimit">calculated lower limit</param>
     /// <param name="upperLimit">calculated upper limit</param>
-    public static void CalculateLimits(float dimension, float position, float min, 
-        float max, out float lowerLimit, out float upperLimit)
+    public static void CalculateLimits(float dimension, float position, float min, float max, out float lowerLimit, out float upperLimit)
     {
         float half = dimension * 0.5f;
         lowerLimit = Mathf.Max(position - half, min);
