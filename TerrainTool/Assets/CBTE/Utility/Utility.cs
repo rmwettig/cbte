@@ -17,4 +17,21 @@ public static class Utility
         float f = normalizedDistance * heightMapResolution;
         return Mathf.FloorToInt(f);
     }
+
+    /// <summary>
+    /// Calculates border values
+    /// </summary>
+    /// <param name="dimension">size on a specific axis</param>
+    /// <param name="position">center of mass on the specific axis</param>
+    /// <param name="min">axis minimum</param>
+    /// <param name="max">axis maximum</param>
+    /// <param name="lowerLimit">calculated lower limit</param>
+    /// <param name="upperLimit">calculated upper limit</param>
+    public static void CalculateLimits(float dimension, float position, float min, 
+        float max, out float lowerLimit, out float upperLimit)
+    {
+        float half = dimension * 0.5f;
+        lowerLimit = Mathf.Max(position - half, min);
+        upperLimit = Mathf.Min(position + half, max);
+    }
 }
