@@ -28,7 +28,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     private float _length = 100f;
     private float _width = 100f;
     private Color _color = Color.white;
-
+    private Region _region = null;
 
     #region Inspector UI state
     private bool _isOpen = false;
@@ -160,7 +160,14 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 
     public void Apply(Terrain terrain)
     {
-        throw new System.NotImplementedException();
+        _region = Region.CalculateRegion(_position, _width, _length, terrain);
+        //save previous height values
+        TerrainData td = terrain.terrainData;
+        _previousHeights = td.GetHeights(_region.X, _region.Y, _region.XCount, _region.YCount);
+        //sample height value from texture source
+        float[,] heights = null;
+        //write new height values
+        td.SetHeights(_region.X, _region.Y, heights);
     }
 
     public void Undo(Terrain terrain)
