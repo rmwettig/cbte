@@ -22,6 +22,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     private float _strength = 1.0f;
 
     private bool _isFrozen = false;
+    [SerializeField]
     private string _name = "";
     private Vector3 _position = Vector3.zero;
     private Vector3 _dimension = new Vector3(100f, 0, 100f);
@@ -210,6 +211,12 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     public string GetName()
     {
         return _name;
+    }
+
+    public void OnEnable()
+    {
+        //prevent that a constraint will be removed by the GC
+        hideFlags = HideFlags.HideAndDontSave;
     }
 }
 
