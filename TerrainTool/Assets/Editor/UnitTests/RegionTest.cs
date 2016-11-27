@@ -20,6 +20,7 @@ public class RegionTest {
         //assume being at zero position taking into account the dimensions
         Vector3 position = new Vector3(50f, 0, 50f);
         
+        //region of the heightmap
         Region r = Region.CalculateRegion(position, width, length, terrain);
 
         //assumptions:
@@ -29,8 +30,8 @@ public class RegionTest {
         //thus, the affected heightmap region must have the following values:
         //x-start: (pos.x - width/2)/terrain.size.x *hmreso == (50 - 50)/500 *513 = 0
         //y-start: (pos.y - length/2)/terrain.size.y *hmreso == (50 - 50)/500 *513 = 0
-        //x-end: ((xStart + (pos.x + width/2))/terrain.size.x)*hmresolution == ((0 + (50 + 50))/500)*513 = 100/500*513 = 0.2*513 = 102,6 -> 102
-        //y-end: ((yStart + (pos.y + length/2))/terrain.size.y)*hmresolution == ((0 + (50 + 50))/500)*513 = 100/500*513 = 0.2*513 = 102,6 -> 102
+        //x-end: ((pos.x + width/2)/terrain.size.x)*hmresolution == ((50 + 50)/500)*513 = 100/500*513 = 0.2*513 = 102,6 -> 102
+        //y-end: ((pos.y + length/2)/terrain.size.y)*hmresolution == ((50 + 50)/500)*513 = 100/500*513 = 0.2*513 = 102,6 -> 102
         //xcount: xend - xstart = 102 - 0 = 102
         //ycount: yend - ystart = 102 - 0 = 102
         Assert.AreEqual(0, r.X);

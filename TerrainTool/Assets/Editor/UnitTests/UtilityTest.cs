@@ -6,7 +6,7 @@ public class UtilityTest
 {
 
     [Test]
-    public void CalculateLimitsWithinBounds()
+    public void CalculateLimitsWithinBoundsTest()
     {
         //assume a position of 200u at any axis
         float position = 200f;
@@ -18,7 +18,7 @@ public class UtilityTest
     }
 
     [Test]
-    public void CalculateLimitsExceedingLowerBound()
+    public void CalculateLimitsExceedingLowerBoundTest()
     {
         //assume a position of 200u at any axis
         float position = 40f;
@@ -34,7 +34,7 @@ public class UtilityTest
     }
 
     [Test]
-    public void CalculateLimitsExceedingUpperBound()
+    public void CalculateLimitsExceedingUpperBoundTest()
     {
         //assume a position of 200u at any axis
         float position = 460f;
@@ -50,7 +50,7 @@ public class UtilityTest
     }
 
     [Test]
-    public void CalculateLimitsExceedingBothBounds()
+    public void CalculateLimitsExceedingBothBoundsTest()
     {
         //assume a position of 200u at any axis
         float position = 40;
@@ -63,5 +63,29 @@ public class UtilityTest
 
         Assert.AreEqual(0f, min);
         Assert.AreEqual(80f, max);
+    }
+
+    [Test]
+    public void TransformWorldToTextureCoordinatesTest()
+    {
+        float terrainStart = 0f;
+        float terrainEnd = 500f;
+        float position = 250f;
+        int heightMapResolution = 513;
+
+       int result = Utility.TransformWorldToTextureArrayCoordinates(terrainStart, terrainEnd, position, heightMapResolution);
+
+        //expectations:
+        //first: lerping between terrainStart and terrainEnd using position as the lerp factor
+        //      0 + (250/500) * (500-0) = 250
+        //second: normalize interpolated value: v/(terrainEnd - terrainStart)
+        //       250/(500-0) = 0.5
+        //third: heightmapResolution * v_normalized
+        //      513 * 0.5 = 256.5
+        //fourth: floor for integer number
+        //      256
+       
+       Assert.AreEqual(256, result);
+
     }
 }
