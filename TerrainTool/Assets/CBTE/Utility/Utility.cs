@@ -13,7 +13,7 @@ public static class Utility
     /// <returns>floored and clamped index</returns>
     public static int TransformWorldToTextureArrayCoordinates(float terrainStart, float terrainEnd, float value, int heightMapResolution)
     {
-        float normalizedDistance = Mathf.Lerp(terrainStart, terrainEnd, value);
+        float normalizedDistance = value/(terrainEnd-terrainStart);
         float f = normalizedDistance * heightMapResolution;
         return Mathf.Clamp(Mathf.FloorToInt(f), 0, heightMapResolution);
     }
