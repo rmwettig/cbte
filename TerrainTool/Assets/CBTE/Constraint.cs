@@ -69,8 +69,6 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         }
     }
 
-
-
     private void DrawMenuBar()
     {
         EditorGUILayout.BeginHorizontal();
@@ -166,7 +164,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         TerrainData td = terrain.terrainData;
         _previousHeights = td.GetHeights(_region.X, _region.Y, _region.XCount, _region.YCount);
         //sample height value from texture source
-        float[,] heights = null;
+        float[,] heights = SampleHeights(_region, _textureSource.CreateTexture());
         //write new height values
         td.SetHeights(_region.X, _region.Y, heights);
     }
@@ -207,7 +205,6 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         }
     }
 
-
     public string GetName()
     {
         return _name;
@@ -217,6 +214,26 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     {
         //prevent that a constraint will be removed by the GC
         hideFlags = HideFlags.HideAndDontSave;
+    }
+
+    /// <summary>
+    /// Extracts greyscale values from a texture
+    /// </summary>
+    /// <param name="_region">section from which should be read</param>
+    /// <param name="texture2D">used texture</param>
+    /// <returns>2D float array</returns>
+    private float[,] SampleHeights(Region _region, Texture2D texture2D)
+    {
+        float[,] heights = new float[_region.YCount, _region.XCount];
+        Color[] greyscaleValues = texture2D.GetPixels(_region.X, _region.Y, _region.XCount, _region.YCount);
+        for (int i = 0; i < _region.XCount; i++)
+        {
+            for (int j = 0; j < _region.YCount; j++)
+            {
+                heights[j, i] = greyscaleValues[i + j * _region.XCount].grayscale;
+            }
+        }
+        return heights;
     }
 }
 
