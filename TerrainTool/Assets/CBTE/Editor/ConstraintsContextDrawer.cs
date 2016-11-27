@@ -13,7 +13,7 @@ public class ConstraintsContextDrawer : Editor
         _context = (target as ConstraintsContext);
         if (_context.Constraints != null)
         {
-            RegisterAtConstraints(_context.Constraints); 
+            RegisterAtConstraints(_context.Constraints);
         }
     }
 
@@ -60,12 +60,17 @@ public class ConstraintsContextDrawer : Editor
         }
         if (GUILayout.Button("Apply"))
         {
-            for(int i = 0; i < _context.Constraints.Count;i++)
+            Debug.Log(_context.Constraints.Count);
+            for (int i = 0; i < _context.Constraints.Count; i++)
             {
                 Constraint c = _context.Constraints[i];
-                if(c!= null)
+                if (c != null)
                 {
                     c.Apply(_context.Terrain);
+                }
+                else
+                {
+                    Debug.Log("constraint is null.");
                 }
             }
         }
@@ -78,7 +83,7 @@ public class ConstraintsContextDrawer : Editor
     private void DrawConstraintUI()
     {
         List<Constraint> constraints = _context.Constraints;
-        for(int i = 0; i < constraints.Count; i++)
+        for (int i = 0; i < constraints.Count; i++)
         {
             constraints[i].DrawInspectorUI(_context);
         }
@@ -98,7 +103,7 @@ public class ConstraintsContextDrawer : Editor
             Constraint c = constraints[i];
             if (c != null)
             {
-                RegisterCallbacks(c); 
+                RegisterCallbacks(c);
             }
         }
     }
@@ -157,7 +162,7 @@ public class ConstraintsContextDrawer : Editor
 
     public void OnConstraintChanged(Constraint constraint)
     {
-        
+
     }
 
     #endregion

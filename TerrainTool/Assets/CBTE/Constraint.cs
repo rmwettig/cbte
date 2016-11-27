@@ -13,6 +13,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     public event ConstraintChangedEvent Delete;
     public event ConstraintChangedEvent Change;
 
+    [SerializeField]
     private TextureSource _textureSource = null;
 
     private float[,] _previousHeights = null;
@@ -24,17 +25,24 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     private bool _isFrozen = false;
     [SerializeField]
     private string _name = "";
+    [SerializeField]
     private Vector3 _position = Vector3.zero;
+    [SerializeField]
     private Vector3 _dimension = new Vector3(100f, 0, 100f);
+    [SerializeField]
     private float _length = 100f;
+    [SerializeField]
     private float _width = 100f;
+    [SerializeField]
     private Color _color = Color.white;
+    [SerializeField]
     private Region _region = null;
 
     #region Inspector UI state
     private bool _isOpen = false;
     private bool _isSettingsOpen = false;
     private bool _isTextureSourceOpen = false;
+    [SerializeField]
     private int _textureSourceIndex = -1;
     #endregion Inspector UI state
 

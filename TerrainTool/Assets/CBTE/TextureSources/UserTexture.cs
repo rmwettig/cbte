@@ -22,7 +22,10 @@ public class UserTexture : TextureSource
     {
         base.DrawInspectorUI(context);
         _texture = EditorGUILayout.ObjectField("Heightmap", _texture, typeof(Texture2D)) as Texture2D;
-        CheckIfTextureIsReadable(_texture);
+        if (_texture != null)
+        {
+            CheckIfTextureIsReadable(_texture); 
+        }
     }
 
     /// <summary>
