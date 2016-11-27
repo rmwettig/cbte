@@ -9,8 +9,8 @@ public class RegionTest {
 	{
         //create a 100x100 terrain with a 513x513 heightmap
         TerrainData td = new TerrainData();
-        td.size = new Vector3(500f, 0f, 500f);
         td.heightmapResolution = 513;
+        td.size = new Vector3(500f, 0f, 500f);
         GameObject go = Terrain.CreateTerrainGameObject(td);
         go.transform.position = Vector3.zero;
         Terrain terrain = go.GetComponent<Terrain>();
