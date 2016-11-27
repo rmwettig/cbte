@@ -11,7 +11,10 @@ public class ConstraintsContextDrawer : Editor
     private void OnEnable()
     {
         _context = (target as ConstraintsContext);
-        RegisterAtConstraints();
+        if (_context.Constraints != null)
+        {
+            RegisterAtConstraints(_context.Constraints); 
+        }
     }
 
     private void OnDisable()
@@ -81,12 +84,15 @@ public class ConstraintsContextDrawer : Editor
     /// <summary>
     /// Iterates over all constraints and adds event callbacks
     /// </summary>
-    private void RegisterAtConstraints()
+    private void RegisterAtConstraints(List<Constraint> constraints)
     {
-        List<Constraint> constraints = _context.Constraints;
         for (int i = 0; i < constraints.Count; i++)
         {
-            RegisterCallbacks(constraints[i]);
+            Constraint c = constraints[i];
+            if (c != null)
+            {
+                RegisterCallbacks(c); 
+            }
         }
     }
 
