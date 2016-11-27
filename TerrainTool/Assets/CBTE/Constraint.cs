@@ -213,7 +213,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     public void OnEnable()
     {
         //prevent that a constraint will be removed by the GC
-        hideFlags = HideFlags.HideAndDontSave;
+        //hideFlags = HideFlags.HideAndDontSave;
     }
 
     /// <summary>
@@ -230,6 +230,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         {
             for (int j = 0; j < _region.YCount; j++)
             {
+                Debug.Log(greyscaleValues[i + j * _region.XCount]);
                 heights[j, i] = greyscaleValues[i + j * _region.XCount].grayscale;
             }
         }

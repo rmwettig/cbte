@@ -8,9 +8,10 @@ using UnityEngine;
 public class ConstraintsContext : MonoBehaviour
 {
     private Terrain _terrain;
+    [SerializeField]
     private TextureSourceManager _tsm;
     [SerializeField]
-    private List<Constraint> _constraints = new List<Constraint>(1);
+    private List<Constraint> _constraints;
     private bool _noError = false;
     public TextureSourceManager TextureSourceManager { get { return _tsm; } }
 
@@ -32,6 +33,12 @@ public class ConstraintsContext : MonoBehaviour
                 ut.SetName("UserTexture");
                 _tsm.AddPrototypes(ut);
             }
+
+            if(_constraints == null)
+            {
+                _constraints = new List<Constraint>();
+            }
+
             _noError = true;
         }
 

@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class TextureSourceManager : ScriptableObject
 {
+    [SerializeField]
     private int _prototypeCount = 0;
+    [SerializeField]
     private List<TextureSource> _textureSources = null;
+    [SerializeField]
     private string[] _selectionNames = null;
 
     public TextureSource FindSourceByName(string name)
