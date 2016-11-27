@@ -60,7 +60,14 @@ public class ConstraintsContextDrawer : Editor
         }
         if (GUILayout.Button("Apply"))
         {
-
+            for(int i = 0; i < _context.Constraints.Count;i++)
+            {
+                Constraint c = _context.Constraints[i];
+                if(c!= null)
+                {
+                    c.Apply(_context.Terrain);
+                }
+            }
         }
         EditorGUILayout.EndHorizontal();
     }
