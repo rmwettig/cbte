@@ -1,11 +1,13 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Base class for texture factory prototypes.
+/// </summary>
 public abstract class TextureSource : ScriptableObject, Inspectable, Nameable
 {
     protected Texture2D _texture;

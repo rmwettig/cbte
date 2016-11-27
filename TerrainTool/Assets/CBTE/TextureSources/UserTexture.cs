@@ -8,9 +8,13 @@ using UnityEngine;
 
 public class UserTexture : TextureSource
 {
+    /// <summary>
+    /// Accesses the specified texture without additional memory allocation
+    /// </summary>
+    /// <returns>reference to the user-specified texture</returns>
 	public override Texture2D CreateTexture()
 	{
-		throw new System.NotImplementedException();
+        return _texture;
 	}
 
 
