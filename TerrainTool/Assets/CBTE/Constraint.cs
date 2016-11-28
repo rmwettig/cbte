@@ -215,6 +215,10 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
         if (GUI.changed)
         {
             EditorUtility.SetDirty(target);
+            if(Change != null)
+            {
+                Change(this);
+            }
         }
     }
 

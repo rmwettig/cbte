@@ -162,7 +162,8 @@ public class ConstraintsContextDrawer : Editor
 
     public void OnConstraintChanged(Constraint constraint)
     {
-
+        constraint.Undo(_context.Terrain);
+        constraint.Apply(_context.Terrain);
     }
 
     #endregion
