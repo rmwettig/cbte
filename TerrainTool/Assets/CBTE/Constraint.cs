@@ -227,19 +227,23 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
     /// <summary>
     /// Extracts greyscale values from a texture
     /// </summary>
-    /// <param name="_region">section from which should be read</param>
+    /// <param name="region">section from which should be read</param>
     /// <param name="texture2D">used texture</param>
     /// <returns>2D float array</returns>
-    private float[,] SampleHeights(Region _region, Texture2D texture2D)
+    private float[,] SampleHeights(Region region, Texture2D texture2D)
     {
-        float[,] heights = new float[_region.YCount, _region.XCount];
-        Color[] greyscaleValues = texture2D.GetPixels(_region.X, _region.Y, _region.XCount, _region.YCount);
-        for (int i = 0; i < _region.XCount; i++)
+        float[,] heights = new float[region.YCount, region.XCount];
+        for (int i = 0; i < region.XCount; i++)
         {
-            for (int j = 0; j < _region.YCount; j++)
+            //determine the normalized x coordinate and
+            //multiply it with texture width to get current position to read from
+            int u = Mathf.FloorToInt((i / (float)region.XCount) * texture2D.width);
+            for (int j = 0; j < region.YCount; j++)
             {
-                Debug.Log(greyscaleValues[i + j * _region.XCount]);
-                heights[j, i] = greyscaleValues[i + j * _region.XCount].grayscale;
+                //same intentions as for the u coordinate
+                int v = Mathf.FloorToInt((j / (float)region.YCount) * texture2D.height);
+
+                heights[j, i] = texture2D.GetPixel(u, v).r;
             }
         }
         return heights;
