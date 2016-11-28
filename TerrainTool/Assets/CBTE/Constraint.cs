@@ -20,6 +20,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 
     private float _rotationAngle = 0f;
 
+    [SerializeField]
     private float _strength = 1.0f;
 
     private bool _isFrozen = false;
@@ -108,6 +109,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
             _name = EditorGUILayout.TextField("Name:", _name);
             _color = EditorGUILayout.ColorField("Outline color", _color);
             _position = EditorGUILayout.Vector3Field("Position", _position, GUILayout.MaxWidth(200f));
+            _strength = EditorGUILayout.Slider(_strength, 0f, 1f);
             UpdateDimensions();
             EditorGUI.indentLevel--;
 
@@ -252,7 +254,7 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
                 //same intentions as for the u coordinate
                 int v = Mathf.FloorToInt((j / (float)region.YCount) * texture2D.height);
 
-                heights[j, i] = texture2D.GetPixel(u, v).r;
+                heights[j, i] = texture2D.GetPixel(u, v).r * _strength;
             }
         }
         return heights;
