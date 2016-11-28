@@ -179,7 +179,12 @@ public class Constraint : ScriptableObject, Colorizable, Nameable, Inspectable, 
 
     public void Undo(Terrain terrain)
     {
-        Debug.Log("TODO: undo impl");
+        if (_region != null && _previousHeights != null)
+        {
+            //revert current changes
+            TerrainData td = terrain.terrainData;
+            td.SetHeights(_region.X, _region.Y, _previousHeights); 
+        }
     }
 
     public void DrawTransformHandle(UnityEngine.Object target, float xMin, float xMax, float zMin, float zMax)
